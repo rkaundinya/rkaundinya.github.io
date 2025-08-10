@@ -27,21 +27,21 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a neuromorphic artificial intelligence researcher at the University of Groningen 
-pursuing my PhD at [Cognigron](https://www.rug.nl/research/fse/cognitive-systems-and-materials/?lang=en). 
+I am a neuromorphic artificial intelligence researcher at the University of Groningen
+pursuing my PhD at [Cognigron](https://www.rug.nl/research/fse/cognitive-systems-and-materials/?lang=en).
 
-I have a rich background working on video games such as Civilization 7 and Marvel's Midnight 
-Suns and as a musician and bandleader with appearances in Carnegie Hall, Disney cartoons, and 
+I have a rich background working on video games such as Civilization 7 and Marvel's Midnight
+Suns and as a musician and bandleader with appearances in Carnegie Hall, Disney cartoons, and
 the Lincoln Center!
 
-My research interests lie in the intersection of dynamical systems, control theory, 
-cognitive science, neuromorphic computing, and artificial intelligence. 
+My research interests lie in the intersection of dynamical systems, control theory,
+cognitive science, neuromorphic computing, and artificial intelligence.
 
-I believe a Neoplatonic ontology which affords levels of reality all interpenetrating 
-into one another symbolized aptly by the image of Indra's Net is the religio which binds 
-together intelligence. 
+I believe a Neoplatonic ontology which affords levels of reality all interpenetrating
+into one another symbolized aptly by the image of Indra's Net is the religio which binds
+together intelligence.
 
-Influenced by Rodney Brooks, Jeff Hawkins, John Vervaeke, Allen Newell, Chris Eliasmith, and others. 
+Influenced by Rodney Brooks, Jeff Hawkins, John Vervaeke, Allen Newell, Chris Eliasmith, and others.
 
 Please reach out, I'd love to connect!
 
