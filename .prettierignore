@@ -1,12 +1,37 @@
-**/*.map
-**/*.min.css
-**/*.min.js
-assets/css/main.scss
-assets/js/distillpub/template.v2.js
-assets/js/search/*.js
-assets/plotly/demo.html
-lighthouse_results/**
-_posts/2015-10-20-math.md
-_sass/font-awesome/*.scss
-_sass/tabler-icons/*.scss
-_scripts/*
+# Minified JavaScript files
+assets/js/distillpub/*.js
+assets/js/bootstrap*.js
+assets/js/masonry.js
+assets/js/vanilla-back-to-top.min.js
+assets/js/venobox.min.js
+assets/js/zoom.min.js
+
+# Markdown files with complex formatting
+_posts/2015-07-15-code.md
+_news/*.md
+_pages/*.md
+
+# Documentation files
+INSTALL.md
+README.md
+CONTRIBUTING.md
+CUSTOMIZE.md
+FAQ.md
+
+# Liquid template files
+_layouts/*.liquid
+_includes/*.liquid
+
+# Configuration files
+_config.yml
+_data/*.yml
+
+# Package files
+package*.json
+Gemfile
+requirements.txt
+
+# Build artifacts
+_site/
+node_modules/
+vendor/
