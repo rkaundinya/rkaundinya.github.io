@@ -6,8 +6,19 @@ assets/js/vanilla-back-to-top.min.js
 assets/js/venobox.min.js
 assets/js/zoom.min.js
 
+# Jekyll script files with YAML frontmatter
+_scripts/*.js
+
+# SCSS files with liquid templating
+assets/css/main.scss
+
+# Font Awesome and Tabler Icons SCSS files
+_sass/font-awesome/*.scss
+_sass/tabler-icons/*.scss
+
 # Markdown files with complex formatting
 _posts/2015-07-15-code.md
+_posts/2015-10-20-math.md
 _news/*.md
 _pages/*.md
 
@@ -35,3 +46,15 @@ requirements.txt
 _site/
 node_modules/
 vendor/
+
+# Minified CSS files
+assets/css/*.min.css
+
+# Search library files
+assets/js/search/*.js
+
+# Lighthouse results
+lighthouse_results/**
+
+# Plotly demo
+assets/plotly/demo.html
