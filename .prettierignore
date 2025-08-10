@@ -5,6 +5,7 @@ assets/js/masonry.js
 assets/js/vanilla-back-to-top.min.js
 assets/js/venobox.min.js
 assets/js/zoom.min.js
+assets/js/tabs.min.js
 
 # Jekyll script files with YAML frontmatter
 _scripts/*.js
@@ -50,8 +51,9 @@ vendor/
 # Minified CSS files
 assets/css/*.min.css
 
-# Search library files
-assets/js/search/*.js
+# Search library files - be more specific
+assets/js/search/
+assets/js/search/**/*.js
 
 # Lighthouse results
 lighthouse_results/**
