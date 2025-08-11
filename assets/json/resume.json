@@ -33,7 +33,7 @@
     {
       "institution": "University of Groningen",
       "location": "Groningen, Netherlands",
-      "url": "www.rug.nl",
+      "url": "https://www.rug.nl",
       "area": "Researcher",
       "studyType": "PhD",
       "startDate": "2024-09",
@@ -42,7 +42,7 @@
     {
       "institution": "Drexel University",
       "location": "Philadelphia, USA",
-      "url": "www.drexel.edu",
+      "url": "https://www.drexel.edu",
       "area": "Masters in Science",
       "studyType": "Artificial Intelligence and Machine Learning",
       "startDate": "2022-03",
@@ -51,7 +51,7 @@
     {
       "institution": "University of California, Los Angeles",
       "location": "Los Angeles, USA",
-      "url": "www.ucla.edu",
+      "url": "https://www.ucla.edu",
       "area": "Bachelors in Science",
       "studyType": "Cognitive Science",
       "startDate": "2015-09",
