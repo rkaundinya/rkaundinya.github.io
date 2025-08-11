@@ -6,7 +6,7 @@ img: assets/img/megalith.jpg
 importance: 3
 category: MOBA, VR
 steam: https://store.steampowered.com/app/898390/Megalith/
-trailer: https://store.steampowered.com/app/898390/Megalith/
+trailer: https://www.youtube.com/watch?v=phgDEBXHxhc&ab_channel=PlayStation
 platforms: [PS4, PC]
 engine: Unreal Engine 4
 release_date: 2018-11-10

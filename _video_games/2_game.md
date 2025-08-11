@@ -8,7 +8,7 @@ category: role playing game
 steam: https://store.steampowered.com/app/368260/Marvels_Midnight_Suns/
 trailer: https://www.youtube.com/watch?v=Ripgh8W2PMg&ab_channel=MarvelEntertainment
 platforms: [PC, Xbox, PS4, PS5]
-engine: Godot
+engine: Unreal Engine 5
 release_date: 2022-12-02
 status: Released
 role: Gameplay Engineer
