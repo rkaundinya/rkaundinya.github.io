@@ -11,7 +11,7 @@ platforms: [PC, Xbox, PS4, PS5]
 engine: Godot
 release_date: 2022-12-02
 status: Released
-role: [Gameplay Engineer]
+role: Gameplay Engineer
 ---
 
 Also contributed to mission design and engineering for base game and DLC's!
