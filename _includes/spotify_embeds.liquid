@@ -23,7 +23,7 @@
           {% endif %}
           
           <div class="{{ col_class }} mb-3">
-            <div class="spotify-embed-container">
+            <div class="spotify-embed-container" data-spotify-type="track" data-spotify-id="{{ track.track_id }}">
               {% if settings.show_track_descriptions %}
                 <div class="track-info mb-2">
                   <h5 class="track-title mb-1">{{ track.title }}</h5>
@@ -34,16 +34,13 @@
                 </div>
               {% endif %}
               
-              <iframe 
-                style="border-radius:12px" 
-                src="https://open.spotify.com/embed/track/{{ track.track_id }}?utm_source=generator" 
-                width="100%" 
-                height="{{ settings.track_height }}" 
-                frameborder="0" 
-                allowfullscreen="" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy">
-              </iframe>
+              <!-- Placeholder that will be replaced with iframe when in view -->
+              <div class="spotify-placeholder">
+                <div class="spotify-logo">
+                  <i class="fab fa-spotify"></i>
+                </div>
+                <p class="placeholder-text">Loading Spotify track...</p>
+              </div>
             </div>
           </div>
         {% endfor %}
@@ -53,7 +50,7 @@
       {% if album and album.album_id %}
         <div class="row mt-4">
           <div class="col-12">
-            <div class="spotify-embed-container">
+            <div class="spotify-embed-container" data-spotify-type="{{ album.type }}" data-spotify-id="{{ album.album_id }}">
               {% if settings.show_track_descriptions %}
                 <div class="album-info mb-3 text-center">
                   <h4 class="album-title mb-2">{{ album.title }}</h4>
@@ -64,16 +61,13 @@
                 </div>
               {% endif %}
               
-              <iframe 
-                style="border-radius:12px" 
-                src="https://open.spotify.com/embed/{{ album.type }}/{{ album.album_id }}?utm_source=generator" 
-                width="100%" 
-                height="{{ settings.album_height }}" 
-                frameborder="0" 
-                allowfullscreen="" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy">
-              </iframe>
+              <!-- Placeholder that will be replaced with iframe when in view -->
+              <div class="spotify-placeholder">
+                <div class="spotify-logo">
+                  <i class="fab fa-spotify"></i>
+                </div>
+                <p class="placeholder-text">Loading Spotify {{ album.type }}...</p>
+              </div>
             </div>
           </div>
         </div>
@@ -81,3 +75,96 @@
     </div>
   {% endif %}
 {% endif %}
+
+<style>
+.spotify-placeholder {
+  background: #1DB954;
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.spotify-logo {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.placeholder-text {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.spotify-embed-container iframe {
+  border-radius: 12px;
+  width: 100%;
+  border: none;
+}
+</style>
+
+<script>
+// Lazy loading for Spotify embeds
+document.addEventListener('DOMContentLoaded', function() {
+  const spotifyContainers = document.querySelectorAll('.spotify-embed-container[data-spotify-id]');
+  
+  if ('IntersectionObserver' in window) {
+    const spotifyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const container = entry.target;
+          const spotifyType = container.dataset.spotifyType;
+          const spotifyId = container.dataset.spotifyId;
+          
+          // Create iframe
+          const iframe = document.createElement('iframe');
+          iframe.src = `https://open.spotify.com/embed/${spotifyType}/${spotifyId}?utm_source=generator`;
+          iframe.width = "100%";
+          iframe.height = spotifyType === 'track' ? "{{ settings.track_height }}" : "{{ settings.album_height }}";
+          iframe.frameBorder = "0";
+          iframe.allowFullscreen = "";
+          iframe.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+          iframe.loading = "lazy";
+          
+          // Replace placeholder with iframe
+          container.innerHTML = '';
+          container.appendChild(iframe);
+          
+          // Stop observing this container
+          spotifyObserver.unobserve(container);
+        }
+      });
+    }, {
+      rootMargin: '100px 0px', // Start loading 100px before entering viewport
+      threshold: 0.1
+    });
+    
+    spotifyContainers.forEach(container => {
+      spotifyObserver.observe(container);
+    });
+  } else {
+    // Fallback for older browsers - load all embeds immediately
+    spotifyContainers.forEach(container => {
+      const spotifyType = container.dataset.spotifyType;
+      const spotifyId = container.dataset.spotifyId;
+      
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://open.spotify.com/embed/${spotifyType}/${spotifyId}?utm_source=generator`;
+      iframe.width = "100%";
+      iframe.height = spotifyType === 'track' ? "{{ settings.track_height }}" : "{{ settings.album_height }}";
+      iframe.frameBorder = "0";
+      iframe.allowFullscreen = "";
+      iframe.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+      
+      container.innerHTML = '';
+      container.appendChild(iframe);
+    });
+  }
+});
+</script>
