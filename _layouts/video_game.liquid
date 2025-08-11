@@ -1,0 +1,145 @@
+---
+layout: default
+---
+
+{%- include header.liquid -%}
+
+<main class="page-content" aria-label="Content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <article class="video-game-post">
+          <nav aria-label="breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="{{ '/video_games/' | relative_url }}">Video Games</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+            </ol>
+          </nav>
+          
+          <header class="post-header">
+            <h1 class="post-title">{{ page.title }}</h1>
+            {% if page.description %}
+              <p class="post-description">{{ page.description }}</p>
+            {% endif %}
+          </header>
+
+          {% if page.trailer %}
+          <div class="trailer-section">
+            <h3 class="trailer-title">
+              <i class="fas fa-play-circle"></i>
+              Gameplay Trailer
+            </h3>
+            <div class="trailer-embed">
+              {% assign video_id = page.trailer %}
+              {% if page.trailer contains 'youtube.com/watch?v=' %}
+                {% assign video_id = page.trailer | split: 'v=' | last | split: '&' | first %}
+              {% elsif page.trailer contains 'youtu.be/' %}
+                {% assign video_id = page.trailer | split: 'youtu.be/' | last | split: '?' | first %}
+              {% elsif page.trailer contains 'youtube.com/embed/' %}
+                {% assign video_id = page.trailer | split: 'embed/' | last | split: '?' | first %}
+              {% elsif page.trailer contains 'youtube.com/v/' %}
+                {% assign video_id = page.trailer | split: 'v/' | last | split: '?' | first %}
+              {% endif %}
+              
+              {% if video_id != page.trailer %}
+                <iframe 
+                  src="https://www.youtube.com/embed/{{ video_id }}?rel=0&modestbranding=1&showinfo=0&color=white&theme=light"
+                  title="{{ page.title }} - Gameplay Trailer"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen>
+                </iframe>
+              {% else %}
+                <div class="trailer-error">
+                  <p>Unable to embed video. <a href="{{ page.trailer }}" target="_blank" rel="noopener">Click here to watch on YouTube</a></p>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+
+          <div class="post-content">
+            {{ content }}
+          </div>
+
+          <footer class="post-footer">
+            <div class="post-meta">
+              {% if page.engine %}
+                <span class="meta-item">
+                  <i class="fas fa-cog"></i>
+                  <strong>Engine:</strong> {{ page.engine }}
+                </span>
+              {% endif %}
+              
+              {% if page.platforms %}
+                <span class="meta-item">
+                  <i class="fas fa-gamepad"></i>
+                  <strong>Platforms:</strong> {{ page.platforms | join: ", " }}
+                </span>
+              {% endif %}
+              
+              {% if page.release_date %}
+                <span class="meta-item">
+                  <i class="fas fa-calendar"></i>
+                  <strong>Release Date:</strong> {{ page.release_date | date: "%B %d, %Y" }}
+                </span>
+              {% endif %}
+              
+              {% if page.status %}
+                <span class="meta-item">
+                  <i class="fas fa-info-circle"></i>
+                  <strong>Status:</strong> {{ page.status }}
+                </span>
+              {% endif %}
+              
+              {% if page.team_size %}
+                <span class="meta-item">
+                  <i class="fas fa-users"></i>
+                  <strong>Team Size:</strong> {{ page.team_size }}
+                </span>
+              {% endif %}
+              
+              {% if page.role %}
+                <span class="meta-item">
+                  <i class="fas fa-user"></i>
+                  <strong>Role{% if page.role.size > 1 %}s{% endif %}:</strong> 
+                  {% if page.role.size > 1 %}
+                    {% for role in page.role %}
+                      <span class="role-tag">{{ role }}</span>{% unless forloop.last %}, {% endunless %}
+                    {% endfor %}
+                  {% else %}
+                    {{ page.role }}
+                  {% endif %}
+                </span>
+              {% endif %}
+            </div>
+            
+            <div class="post-links">
+              {% if page.github %}
+                <a href="{{ page.github }}" class="btn btn-primary" target="_blank" rel="noopener">
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              {% endif %}
+              
+              {% if page.itch %}
+                <a href="{{ page.itch }}" class="btn btn-success" target="_blank" rel="noopener">
+                  <i class="fas fa-gamepad"></i> Play on Itch.io
+                </a>
+              {% endif %}
+              
+              {% if page.steam %}
+                <a href="{{ page.steam }}" class="btn btn-info" target="_blank" rel="noopener">
+                  <i class="fab fa-steam"></i> View on Steam
+                </a>
+              {% endif %}
+            </div>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </div>
+</main>
+
+{%- include footer.liquid -%}

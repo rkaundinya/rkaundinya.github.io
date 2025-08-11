@@ -1,8 +1,8 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
-subtitle: <a href='https://www.rug.nl/research/fse/cognitive-systems-and-materials/?lang=en'>Cognigron</a>. Address. Contacts. Motto. Etc.
+subtitle: <a href='https://www.rug.nl/research/fse/cognitive-systems-and-materials/?lang=en'>Cognigron</a>. 
 
 profile:
   align: right
@@ -28,17 +28,17 @@ latest_posts:
 ---
 
 I am a neuromorphic artificial intelligence researcher at the University of Groningen
-pursuing my PhD at [Cognigron](https://www.rug.nl/research/fse/cognitive-systems-and-materials/?lang=en).
+pursuing my PhD at [Cognigron](https://www.rug.nl/research/fse/cognitive-systems-and-materials/?lang=en). 
+
+My research interests lie in the intersection of dynamical systems, control theory,
+cognitive science, neuromorphic computing, and artificial intelligence. I am currently working in tactile and sensorimotor application areas. 
 
 I have a rich background working on video games such as Civilization 7 and Marvel's Midnight
 Suns and as a musician and bandleader with appearances in Carnegie Hall, Disney cartoons, and
 the Lincoln Center!
 
-My research interests lie in the intersection of dynamical systems, control theory,
-cognitive science, neuromorphic computing, and artificial intelligence.
-
-I believe a Neoplatonic ontology which affords levels of reality all interpenetrating
-into one another symbolized aptly by the image of Indra's Net is the religio which binds
+I believe a Neoplatonic worldview which affords levels of reality all interpenetrating
+into one another symbolized aptly by the image of Indra's Net, is the religio which binds
 together intelligence.
 
 Influenced by Rodney Brooks, Jeff Hawkins, John Vervaeke, Allen Newell, Chris Eliasmith, and others.

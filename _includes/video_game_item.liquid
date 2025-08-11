@@ -1,0 +1,96 @@
+<div class="video-game-item">
+  <div class="video-game-content">
+    {% if game.img %}
+      <div class="video-game-image">
+        <a href="{{ game.url | relative_url }}" class="game-image-link">
+          {%
+            include figure.liquid
+            loading="lazy"
+            path=game.img
+            sizes="300px"
+            alt="game thumbnail"
+            class="game-thumbnail"
+          %}
+        </a>
+      </div>
+    {% endif %}
+    
+    <div class="video-game-details">
+      <h3 class="video-game-title">
+        <a href="{{ game.url | relative_url }}" class="game-title-link">{{ game.title }}</a>
+      </h3>
+      <p class="video-game-description">{{ game.description }}</p>
+      
+      <div class="video-game-roles">
+        {% if game.role %}
+          <span class="meta-item">
+            <i class="fas fa-user"></i>
+            <span>
+              {% if game.role.size > 1 %}
+                {% for role in game.role %}
+                  <span class="role-tag">{{ role }}</span>{% unless forloop.last %}, {% endunless %}
+                {% endfor %}
+              {% else %}
+                {{ game.role }}
+              {% endif %}
+            </span>
+          </span>
+        {% endif %}
+      </div>
+
+      <div class="video-game-meta">
+        {% if game.engine %}
+          <span class="meta-item">
+            <i class="fas fa-cog"></i>
+            <span>{{ game.engine }}</span>
+          </span>
+        {% endif %}
+        
+        {% if game.platforms %}
+          <span class="meta-item">
+            <i class="fas fa-gamepad"></i>
+            <span>{{ game.platforms | join: ", " }}</span>
+          </span>
+        {% endif %}
+        
+        {% if game.status %}
+          <span class="meta-item">
+            <i class="fas fa-info-circle"></i>
+            <span>{{ game.status }}</span>
+          </span>
+        {% endif %}
+        
+        {% if game.release_date %}
+          <span class="meta-item">
+            <i class="fas fa-calendar"></i>
+            <span>{{ game.release_date | date: "%B %Y" }}</span>
+          </span>
+        {% endif %}
+      </div>
+      
+      <div class="video-game-links">
+        {% if game.github %}
+          <a href="{{ game.github }}" class="btn btn-sm btn-outline-primary" target="_blank" rel="noopener">
+            <i class="fab fa-github"></i> Code
+          </a>
+        {% endif %}
+        
+        {% if game.itch %}
+          <a href="{{ game.itch }}" class="btn btn-sm btn-outline-success" target="_blank" rel="noopener">
+            <i class="fas fa-gamepad"></i> Itch.io
+          </a>
+        {% endif %}
+        
+        {% if game.steam %}
+          <a href="{{ game.steam }}" class="btn btn-sm btn-outline-info" target="_blank" rel="noopener">
+            <i class="fab fa-steam"></i> Steam
+          </a>
+        {% endif %}
+        
+        <a href="{{ game.url | relative_url }}" class="btn btn-sm btn-primary">
+          <i class="fas fa-info-circle"></i> Read More
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

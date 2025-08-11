@@ -40,13 +40,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Checkout lighthouse-badges repository
         uses: actions/checkout@v4
         with:
           repository: "myactionway/lighthouse-badges"
           path: temp_lighthouse_badges_nested
-      
+
       - name: Run Lighthouse tests and generate badges
         uses: myactionway/lighthouse-badger-action@v2.2
         with:

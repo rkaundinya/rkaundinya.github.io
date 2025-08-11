@@ -1423,3 +1423,24 @@ figure.cover {
     color: #23212d !important;
   }
 }
+
+// Role tags styling for video games
+.role-tag {
+  display: inline-block;
+  background-color: var(--global-theme-color);
+  color: white;
+  padding: 0.2rem 0.6rem;
+  margin: 0.1rem 0.2rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: capitalize;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
