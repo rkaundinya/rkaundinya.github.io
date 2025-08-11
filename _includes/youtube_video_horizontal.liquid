@@ -1,0 +1,59 @@
+<div class="col mb-4">
+  <div class="card h-100 hoverable">
+    <div class="row no-gutters">
+      <div class="col-md-6">
+        <div class="video-container">
+          <iframe 
+            src="https://www.youtube.com/embed/{{ video.video_id }}?rel=0" 
+            title="{{ video.title }}"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h3 class="card-title">{{ video.title }}</h3>
+          <p class="card-text">{{ video.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card.hoverable:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+</style>
