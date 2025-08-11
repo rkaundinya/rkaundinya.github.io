@@ -1,0 +1,83 @@
+{% comment %}
+  Spotify Embeds Include
+  Automatically generates Spotify embeds from _data/spotify_tracks.yml
+{% endcomment %}
+
+{% if site.data.spotify_tracks %}
+  {% assign tracks = site.data.spotify_tracks.featured_tracks %}
+  {% assign album = site.data.spotify_tracks.featured_album %}
+  {% assign settings = site.data.spotify_tracks.display_settings %}
+  
+  {% if tracks and tracks.size > 0 %}
+    <div class="spotify-section mb-5">
+      <h2 class="mb-4">Featured Tracks</h2>
+      
+      <!-- Featured Tracks -->
+      <div class="row">
+        {% for track in tracks %}
+          {% assign col_class = "col-md-6" %}
+          {% if settings.max_tracks_per_row == 3 %}
+            {% assign col_class = "col-md-4" %}
+          {% elsif settings.max_tracks_per_row == 4 %}
+            {% assign col_class = "col-lg-3 col-md-6" %}
+          {% endif %}
+          
+          <div class="{{ col_class }} mb-3">
+            <div class="spotify-embed-container">
+              {% if settings.show_track_descriptions %}
+                <div class="track-info mb-2">
+                  <h5 class="track-title mb-1">{{ track.title }}</h5>
+                  <p class="track-artist mb-2 text-muted">{{ track.artist }}</p>
+                  {% if track.description %}
+                    <p class="track-description small">{{ track.description }}</p>
+                  {% endif %}
+                </div>
+              {% endif %}
+              
+              <iframe 
+                style="border-radius:12px" 
+                src="https://open.spotify.com/embed/track/{{ track.track_id }}?utm_source=generator" 
+                width="100%" 
+                height="{{ settings.track_height }}" 
+                frameborder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      
+      <!-- Featured Album/Playlist -->
+      {% if album and album.album_id %}
+        <div class="row mt-4">
+          <div class="col-12">
+            <div class="spotify-embed-container">
+              {% if settings.show_track_descriptions %}
+                <div class="album-info mb-3 text-center">
+                  <h4 class="album-title mb-2">{{ album.title }}</h4>
+                  <p class="album-artist mb-2 text-muted">{{ album.artist }}</p>
+                  {% if album.description %}
+                    <p class="album-description">{{ album.description }}</p>
+                  {% endif %}
+                </div>
+              {% endif %}
+              
+              <iframe 
+                style="border-radius:12px" 
+                src="https://open.spotify.com/embed/{{ album.type }}/{{ album.album_id }}?utm_source=generator" 
+                width="100%" 
+                height="{{ settings.album_height }}" 
+                frameborder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endif %}

@@ -1,23 +1,24 @@
 ---
 layout: page
-title: project 4
-description: another without an image
-img:
-importance: 3
-category: fun
+title: music 6
+description: with background image
+img: assets/img/7.jpg
+importance: 6
+category: collaborations
+related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
+Every music piece has a beautiful feature showcase page.
 It's easy to include images in a flexible 3-column grid format.
 Make your photos 1/3, 2/3, or full width.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+To give your music piece a background in the portfolio page, just add the img tag to the front matter like so:
 
     ---
     layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
+    title: music
+    description: a music piece with a background image
+    img: /assets/img/7.jpg
     ---
 
 <div class="row">
@@ -43,9 +44,9 @@ To give your project a background in the portfolio page, just add the img tag to
     This image can also have a caption. It's like magic.
 </div>
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
+Say you wanted to write a bit about your music piece before you posted the rest of the images.
+You describe how you toiled, sweated, _bled_ for your music, and then... you reveal its glory in the next row of images.
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">

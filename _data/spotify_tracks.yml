@@ -1,0 +1,28 @@
+# Spotify Tracks Configuration
+# Add your featured tracks here - just update the track IDs and information!
+
+featured_tracks:
+  - title: "Gridlock"
+    track_id: "6bs7BEzXlNwC1eZdzhKpAW"
+    artist: "Kune Do"
+    description: "A jazz fusion piece inspired by Tigran Hamasyan and Avishai Cohen."
+    
+  - title: "Uncharted Territory"
+    track_id: "30vjsIKYnb3ErxLDbWFhX4"
+    artist: "Kune Do"
+    description: "A mix of flamenco, Balkan, and Indian Classical in what we term... Uncharted Territory."
+    
+  - title: "Diya Jalein"
+    track_id: "3310q9YckgFtnSwNiVLPkH"
+    artist: "National Children's Chorus"
+    description: "Composed by my sister Gaayatri Kaundinya and performed by the National Children's Chorus featuring myself on tablas and kanjira."
+
+# Optional: Featured Album or Playlist
+# featured_album:
+
+# Display settings
+display_settings:
+  show_track_descriptions: true  # Set to false to hide track/album descriptions
+  max_tracks_per_row: 2          # 2, 3, or 4 tracks per row
+  track_height: 352              # Height of track embeds in pixels
+  album_height: 380              # Height of album/playlist embeds in pixels

@@ -659,9 +659,9 @@ footer.sticky-bottom {
   }
 }
 
-// Projects
+// Music
 
-.projects {
+.music {
   a {
     text-decoration: none;
 
@@ -1442,5 +1442,84 @@ figure.cover {
 
   &:last-child {
     margin-right: 0;
+  }
+}
+
+// Spotify embed styling
+.spotify-section {
+  .spotify-embed-container {
+    background: var(--global-bg-color);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.2s ease-in-out,
+      box-shadow 0.2s ease-in-out;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    iframe {
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  h2 {
+    color: var(--global-theme-color);
+    font-weight: 600;
+    text-align: center;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--global-theme-color);
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+  }
+
+  // Track and Album Information Styling
+  .track-info,
+  .album-info {
+    .track-title,
+    .album-title {
+      color: var(--global-theme-color);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .track-artist,
+    .album-artist {
+      color: var(--global-text-color);
+      opacity: 0.7;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .track-description,
+    .album-description {
+      color: var(--global-text-color);
+      opacity: 0.8;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+  }
+
+  .album-info {
+    text-align: center;
+
+    .album-title {
+      font-size: 1.3rem;
+    }
+
+    .album-description {
+      max-width: 600px;
+      margin: 0 auto;
+    }
   }
 }
