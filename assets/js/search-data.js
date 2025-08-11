@@ -25,7 +25,7 @@ ninja.data = [{
           },
         },{id: "nav-music",
           title: "Music",
-          description: "A collection of music I&#39;ve been involved with creating!",
+          description: "A collection of YouTube music videos organized by category!",
           section: "Navigation",
           handler: () => {
             window.location.href = "/al-folio/music/";
