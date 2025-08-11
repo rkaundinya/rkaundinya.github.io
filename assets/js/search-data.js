@@ -23,12 +23,12 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/al-folio/video_games/";
           },
-        },{id: "nav-projects",
-          title: "Projects",
-          description: "A growing collection of your cool projects.",
+        },{id: "nav-music",
+          title: "Music",
+          description: "A collection of music I&#39;ve been involved with creating!",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/al-folio/projects/";
+            window.location.href = "/al-folio/music/";
           },
         },{id: "nav-repositories",
           title: "Repositories",
@@ -447,6 +447,51 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/al-folio/books/the_godfather/";
+            },},{id: "music-music-1",
+          title: 'music 1',
+          description: "with background image",
+          section: "Music",handler: () => {
+              window.location.href = "/al-folio/music/1_music/";
+            },},{id: "music-music-2",
+          title: 'music 2',
+          description: "with background image",
+          section: "Music",handler: () => {
+              window.location.href = "/al-folio/music/2_music/";
+            },},{id: "music-music-3",
+          title: 'music 3',
+          description: "with background image",
+          section: "Music",handler: () => {
+              window.location.href = "/al-folio/music/3_music/";
+            },},{id: "music-music-4",
+          title: 'music 4',
+          description: "with background image",
+          section: "Music",handler: () => {
+              window.location.href = "/al-folio/music/4_music/";
+            },},{id: "music-music-5",
+          title: 'music 5',
+          description: "with background image",
+          section: "Music",handler: () => {
+              window.location.href = "/al-folio/music/5_music/";
+            },},{id: "music-music-6",
+          title: 'music 6',
+          description: "with background image",
+          section: "Music",handler: () => {
+              window.location.href = "/al-folio/music/6_music/";
+            },},{id: "music-music-7",
+          title: 'music 7',
+          description: "with background image",
+          section: "Music",handler: () => {
+              window.location.href = "/al-folio/music/7_music/";
+            },},{id: "music-music-8",
+          title: 'music 8',
+          description: "with background image",
+          section: "Music",handler: () => {
+              window.location.href = "/al-folio/music/8_music/";
+            },},{id: "music-music-9",
+          title: 'music 9',
+          description: "with background image",
+          section: "Music",handler: () => {
+              window.location.href = "/al-folio/music/9_music/";
             },},{id: "news-paper-presentation-at-nice-in-heidelberg-germany-page",
           title: 'Paper presentation at NICE in Heidelberg, Germany! :page:',
           description: "",
@@ -456,52 +501,7 @@ ninja.data = [{
           section: "News",},{id: "news-poster-presentation-at-icdl-in-prague-czechia-scroll",
           title: 'Poster presentation at ICDL in Prague, Czechia! :scroll:',
           description: "",
-          section: "News",},{id: "projects-project-1",
-          title: 'project 1',
-          description: "with background image",
-          section: "Projects",handler: () => {
-              window.location.href = "/al-folio/projects/1_project/";
-            },},{id: "projects-project-2",
-          title: 'project 2',
-          description: "a project with a background image and giscus comments",
-          section: "Projects",handler: () => {
-              window.location.href = "/al-folio/projects/2_project/";
-            },},{id: "projects-project-3-with-very-long-name",
-          title: 'project 3 with very long name',
-          description: "a project that redirects to another website",
-          section: "Projects",handler: () => {
-              window.location.href = "/al-folio/projects/3_project/";
-            },},{id: "projects-project-4",
-          title: 'project 4',
-          description: "another without an image",
-          section: "Projects",handler: () => {
-              window.location.href = "/al-folio/projects/4_project/";
-            },},{id: "projects-project-5",
-          title: 'project 5',
-          description: "a project with a background image",
-          section: "Projects",handler: () => {
-              window.location.href = "/al-folio/projects/5_project/";
-            },},{id: "projects-project-6",
-          title: 'project 6',
-          description: "a project with no image",
-          section: "Projects",handler: () => {
-              window.location.href = "/al-folio/projects/6_project/";
-            },},{id: "projects-project-7",
-          title: 'project 7',
-          description: "with background image",
-          section: "Projects",handler: () => {
-              window.location.href = "/al-folio/projects/7_project/";
-            },},{id: "projects-project-8",
-          title: 'project 8',
-          description: "an other project with a background image and giscus comments",
-          section: "Projects",handler: () => {
-              window.location.href = "/al-folio/projects/8_project/";
-            },},{id: "projects-project-9",
-          title: 'project 9',
-          description: "another project with an image 🎉",
-          section: "Projects",handler: () => {
-              window.location.href = "/al-folio/projects/9_project/";
-            },},{id: "video_games-civilization-7",
+          section: "News",},{id: "video_games-civilization-7",
           title: 'Civilization 7',
           description: "The award-winning strategy game franchise returns with a revolutionary new chapter. Sid Meier&#39;s Civilization® VII empowers you to build the greatest empire the world has ever known!",
           section: "Video_games",handler: () => {
