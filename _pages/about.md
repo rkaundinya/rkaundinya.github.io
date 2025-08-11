@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: <a href='https://www.rug.nl/research/fse/cognitive-systems-and-materials/?lang=en'>Cognigron</a>. 
+subtitle: <a href='https://www.rug.nl/research/fse/cognitive-systems-and-materials/?lang=en'>Cognigron</a>. <a href='https://nl-eco.nl/'>NL-ECO</a>.
 
 profile:
   align: right

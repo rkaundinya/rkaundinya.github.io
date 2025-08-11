@@ -2,10 +2,11 @@
 layout: page
 permalink: /repositories/
 title: Repositories
-description: Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.
 nav: true
 nav_order: 4
 ---
+
+Here are a few of my public repositories. Some work remains private, but you can follow [rkaundinya](https://github.com/rkaundinya) and [RamGroningen](https://github.com/RamGroningen) and keep up to date with my open source projects.
 
 {% if site.data.repositories.github_users %}
 
