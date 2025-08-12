@@ -17,102 +17,96 @@ $(document).ready(function () {
   });
   $("a").removeClass("waves-effect waves-light");
 
-  // Mobile navigation fixes
-  // Ensure mobile menu works properly
-  $(".navbar-toggler").on("click", function () {
-    var target = $(this).data("target");
-    var $navbarCollapse = $(target);
-
-    // Force proper display of mobile menu
-    if ($navbarCollapse.hasClass("show")) {
-      $navbarCollapse.removeClass("show").addClass("collapsing");
-      setTimeout(function () {
-        $navbarCollapse.removeClass("collapsing");
-      }, 350);
-    } else {
-      $navbarCollapse.addClass("show");
+  // Mobile navigation fixes - Simple Bootstrap 4.6.2 compatibility
+  // Ensure mobile menu works properly with existing Bootstrap functionality
+  $(document).ready(function () {
+    // Ensure Bootstrap collapse is properly initialized
+    if (typeof $ !== "undefined" && $.fn.collapse) {
+      $("#navbarNav").collapse({
+        toggle: false,
+      });
     }
-  });
 
-  // Fix dropdown menus in mobile navigation
-  $(".dropdown-toggle").on("click", function (e) {
-    if ($(window).width() <= 991.98) {
-      e.preventDefault();
-      var $dropdown = $(this).closest(".dropdown");
-      var $dropdownMenu = $dropdown.find(".dropdown-menu");
+    // Fix for dropdown toggles in mobile
+    $(".dropdown-toggle").on("click", function (e) {
+      if ($(window).width() <= 991.98) {
+        e.preventDefault();
+        e.stopPropagation();
 
-      if ($dropdown.hasClass("show")) {
-        $dropdown.removeClass("show");
-        $dropdownMenu.removeClass("show");
-      } else {
+        var $dropdown = $(this).closest(".dropdown");
+        var $dropdownMenu = $dropdown.find(".dropdown-menu");
+
+        // Close other dropdowns
+        $(".dropdown").not($dropdown).removeClass("show");
+        $(".dropdown-menu").not($dropdownMenu).removeClass("show");
+
+        // Toggle current dropdown
+        if ($dropdown.hasClass("show")) {
+          $dropdown.removeClass("show");
+          $dropdownMenu.removeClass("show");
+        } else {
+          $dropdown.addClass("show");
+          $dropdownMenu.addClass("show");
+        }
+      }
+    });
+
+    // Close mobile menu when clicking on a nav link
+    $(".navbar-nav .nav-link").on("click", function () {
+      if ($(window).width() <= 991.98) {
+        var $navbarCollapse = $("#navbarNav");
+        if ($navbarCollapse.hasClass("show")) {
+          $navbarCollapse.collapse("hide");
+        }
+      }
+    });
+
+    // Handle window resize
+    $(window).on("resize", function () {
+      if ($(window).width() > 991.98) {
+        // Reset mobile menu state on larger screens
+        $("#navbarNav").collapse("hide");
         $(".dropdown").removeClass("show");
         $(".dropdown-menu").removeClass("show");
-        $dropdown.addClass("show");
-        $dropdownMenu.addClass("show");
       }
-    }
-  });
+    });
 
-  // Close mobile menu when clicking outside
-  $(document).on("click", function (e) {
-    if (!$(e.target).closest(".navbar").length) {
-      $(".navbar-collapse").removeClass("show");
-      $(".dropdown").removeClass("show");
-      $(".dropdown-menu").removeClass("show");
-    }
-  });
+    // Ensure mobile menu is properly positioned and visible
+    $(".navbar-toggler").on("click", function () {
+      // Small delay to ensure Bootstrap classes are applied
+      setTimeout(function () {
+        var $navbarCollapse = $("#navbarNav");
+        if ($navbarCollapse.hasClass("show")) {
+          // Ensure the mobile menu is properly visible
+          $navbarCollapse.css({
+            position: "relative",
+            top: "auto",
+            left: "auto",
+            right: "auto",
+            width: "100%",
+            overflow: "visible",
+            "max-height": "none",
+          });
 
-  // Additional mobile navigation fixes
-  // Ensure proper Bootstrap collapse functionality
-  $(".navbar-toggler").on("click", function (e) {
-    e.preventDefault();
-    var target = $(this).data("target");
-    var $navbarCollapse = $(target);
+          // Ensure all navigation items are visible
+          $navbarCollapse.find(".navbar-nav, .nav-item, .nav-link, .dropdown-menu, .dropdown-item").css({
+            visibility: "visible",
+            opacity: "1",
+            display: "block",
+            "pointer-events": "auto",
+          });
+        }
+      }, 100);
+    });
 
-    // Toggle the mobile menu
-    if ($navbarCollapse.hasClass("show")) {
-      $navbarCollapse.removeClass("show");
-    } else {
-      // Close any open dropdowns first
-      $(".dropdown").removeClass("show");
-      $(".dropdown-menu").removeClass("show");
-      // Open the mobile menu
-      $navbarCollapse.addClass("show");
-    }
-  });
-
-  // Fix for dropdown toggles in mobile
-  $(".dropdown-toggle").on("click", function (e) {
-    if ($(window).width() <= 991.98) {
-      e.preventDefault();
-      e.stopPropagation();
-
-      var $dropdown = $(this).closest(".dropdown");
-      var $dropdownMenu = $dropdown.find(".dropdown-menu");
-
-      // Close other dropdowns
-      $(".dropdown").not($dropdown).removeClass("show");
-      $(".dropdown-menu").not($dropdownMenu).removeClass("show");
-
-      // Toggle current dropdown
-      if ($dropdown.hasClass("show")) {
-        $dropdown.removeClass("show");
-        $dropdownMenu.removeClass("show");
-      } else {
-        $dropdown.addClass("show");
-        $dropdownMenu.addClass("show");
-      }
-    }
-  });
-
-  // Ensure mobile menu is properly initialized
-  $(window).on("resize", function () {
-    if ($(window).width() > 991.98) {
-      // Reset mobile menu state on larger screens
-      $(".navbar-collapse").removeClass("show");
-      $(".dropdown").removeClass("show");
-      $(".dropdown-menu").removeClass("show");
-    }
+    // Prevent any interference with mobile menu visibility
+    $(document).on("mouseenter mouseleave", ".navbar-collapse, .navbar-nav, .nav-item, .nav-link, .dropdown-menu, .dropdown-item", function (e) {
+      // Ensure elements stay visible during hover events
+      $(this).css({
+        visibility: "visible",
+        opacity: "1",
+      });
+    });
   });
 
   // bootstrap-toc
