@@ -319,234 +319,115 @@ ul.task-list input[type="checkbox"] {
   opacity: 0.95;
 }
 
-// Mobile navigation fixes - Simple Bootstrap 4.6.2 compatibility
-@media (max-width: 991.98px) {
-  // Ensure Bootstrap collapse works properly
-  .navbar-collapse {
-    // Override any conflicting display properties
-    &.collapse:not(.show) {
-      display: none !important;
-    }
+// Mobile navigation - JavaScript overlay styles
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--global-bg-color, #ffffff);
+  z-index: 9999;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 
-    &.show {
-      display: block !important;
-    }
-
-    // Change from absolute to relative positioning to push content down
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    background-color: var(--global-bg-color, #ffffff) !important;
-    border: 1px solid var(--global-divider-color, #e9ecef) !important;
-    border-top: none !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
-    z-index: 1000 !important;
-
-    // Ensure proper scrolling and visibility
-    max-height: none !important;
-    overflow: visible !important;
-
-    // Ensure the menu takes full width and pushes content down
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
+  &.show {
+    display: flex;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
   }
+}
 
-  // Ensure navigation items are properly displayed
-  .navbar-nav {
-    padding: 1rem 0 !important;
-    margin: 0 !important;
-    width: 100% !important;
+.mobile-menu-content {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.mobile-menu-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--global-text-color, #333);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--global-hover-color, #f8f9fa);
+    color: var(--global-theme-color, #007bff);
+  }
+}
+
+// Mobile-specific styles
+@media (max-width: 991.98px) {
+  .mobile-menu-overlay .navbar-nav {
+    width: 100%;
+    margin: 0;
+    padding: 0;
 
     .nav-item {
-      border-bottom: 1px solid var(--global-divider-color, #e9ecef) !important;
-      margin: 0 !important;
+      border-bottom: 1px solid var(--global-divider-color, #e9ecef);
+      margin: 0.5rem 0;
 
       &:last-child {
-        border-bottom: none !important;
-      }
-
-      .nav-link {
-        padding: 0.75rem 1.5rem !important;
-        min-height: 44px !important;
-        display: block !important;
-        width: 100% !important;
-
-        &:hover,
-        &:focus {
-          background-color: var(--global-hover-color, #f8f9fa) !important;
-          color: var(--global-theme-color, #007bff) !important;
-        }
+        border-bottom: none;
       }
     }
-  }
 
-  // Ensure dropdowns work properly in mobile
-  .dropdown-menu {
-    position: static !important;
-    float: none !important;
-    width: 100% !important;
-    background-color: var(--global-bg-color, #ffffff) !important;
-    border: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    .nav-link {
+      padding: 1rem 1.5rem;
+      font-size: 1.1rem;
+      display: block;
+      width: 100%;
 
-    .dropdown-item {
-      padding: 0.5rem 2rem !important;
-      border-bottom: 1px solid var(--global-divider-color, #e9ecef) !important;
-      display: block !important;
-      width: 100% !important;
-
-      &:last-child {
-        border-bottom: none !important;
-      }
-
-      &:hover,
-      &:focus {
-        background-color: var(--global-hover-color, #f8f9fa) !important;
-        color: var(--global-theme-color, #007bff) !important;
+      &:hover {
+        background-color: var(--global-hover-color, #f8f9fa);
+        color: var(--global-theme-color, #007bff);
       }
     }
   }
 
-  // Ensure search and theme toggle buttons are properly styled
-  #search-toggle,
-  #light-toggle {
-    width: 100% !important;
-    text-align: center !important;
-    margin: 0.25rem 0 !important;
-    border: 1px solid var(--global-divider-color, #e9ecef) !important;
-    border-radius: 0.25rem !important;
-    display: block !important;
+  .mobile-menu-overlay .dropdown-menu {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  }
 
-    &:hover,
-    &:focus {
-      background-color: var(--global-hover-color, #f8f9fa) !important;
+  .mobile-menu-overlay .dropdown-item {
+    padding: 0.75rem 2rem;
+    border-bottom: 1px solid var(--global-divider-color, #e9ecef);
+
+    &:last-child {
+      border-bottom: none;
     }
   }
 
-  // Additional fixes to ensure mobile menu works properly
-  .navbar {
-    position: relative !important;
-    z-index: 1030 !important;
-  }
-
+  // Hide the original Bootstrap mobile menu
   .navbar-collapse.show {
-    z-index: 1020 !important;
+    display: none !important;
   }
 
-  // Ensure proper Bootstrap collapse behavior
-  .navbar-collapse {
-    // Override any conflicting flexbox properties
-    &.collapse:not(.show) {
-      display: none !important;
-      flex-basis: 0 !important;
-      flex-grow: 0 !important;
-    }
-
-    &.show {
-      display: block !important;
-      flex-basis: auto !important;
-      flex-grow: 1 !important;
-    }
-  }
-
-  // Ensure proper mobile menu positioning - now relative to push content down
-  .navbar-collapse.show {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    width: 100% !important;
-  }
-
-  // Ensure the navbar container doesn't have conflicting positioning
-  .navbar > .container {
-    position: relative !important;
-  }
-
-  // Ensure proper spacing and visibility
-  .navbar-collapse.show {
-    // Add some bottom margin to separate from page content
-    margin-bottom: 1rem !important;
-
-    // Ensure all content is visible
-    overflow: visible !important;
-
-    // Ensure proper background and borders
-    background-color: var(--global-bg-color, #ffffff) !important;
-    border: 1px solid var(--global-divider-color, #e9ecef) !important;
-    border-top: none !important;
-    border-radius: 0 0 0.25rem 0.25rem !important;
-  }
-
-  // Ensure the page content flows properly below the mobile menu
-  .navbar + * {
-    // Add top margin when mobile menu is open to prevent overlap
-    margin-top: 0 !important;
-  }
-
-  // Ensure the mobile menu doesn't interfere with page layout
-  .navbar-collapse {
-    // Remove any transform properties that might cause positioning issues
-    transform: none !important;
-
-    // Ensure proper stacking context
-    isolation: isolate !important;
-  }
-
-  // Ensure all navigation elements are properly visible
-  .navbar-nav,
-  .navbar-nav .nav-item,
-  .navbar-nav .nav-link,
-  .dropdown-menu,
-  .dropdown-item {
-    // Force visibility and prevent any hiding
-    visibility: visible !important;
-    opacity: 1 !important;
-    display: block !important;
-
-    // Ensure proper pointer events
-    pointer-events: auto !important;
-  }
-
-  // Ensure dropdown arrows are visible and properly positioned
-  .dropdown-toggle::after {
-    display: inline-block !important;
-    margin-left: 0.5rem !important;
-    vertical-align: middle !important;
-  }
-
-  // Ensure proper hover states that don't disappear
-  .navbar-nav .nav-item .nav-link:hover,
-  .navbar-nav .nav-item .nav-link:focus,
-  .dropdown-item:hover,
-  .dropdown-item:focus {
-    // Force hover states to be visible
-    background-color: var(--global-hover-color, #f8f9fa) !important;
-    color: var(--global-theme-color, #007bff) !important;
-
-    // Ensure hover states don't disappear
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  // Ensure the mobile menu container has proper dimensions
-  .navbar-collapse.show {
-    // Ensure proper height calculation
-    height: auto !important;
-    min-height: 0 !important;
-
-    // Ensure proper width and positioning
-    width: 100% !important;
-    max-width: none !important;
-
-    // Ensure proper margins and padding
-    margin: 0 !important;
-    padding: 0 !important;
+  // Prevent body scroll when overlay is open
+  body.mobile-menu-open {
+    overflow: hidden;
   }
 }
 
