@@ -17,19 +17,45 @@ $(document).ready(function () {
   });
   $("a").removeClass("waves-effect waves-light");
 
-  // Mobile navigation fixes - Simple Bootstrap 4.6.2 compatibility
-  // Ensure mobile menu works properly with existing Bootstrap functionality
+  // Mobile navigation - JavaScript overlay solution
   $(document).ready(function () {
-    // Ensure Bootstrap collapse is properly initialized
-    if (typeof $ !== "undefined" && $.fn.collapse) {
-      $("#navbarNav").collapse({
-        toggle: false,
-      });
-    }
+    var $navbarCollapse = $("#navbarNav");
+    var $body = $("body");
+    var overlayCreated = false;
 
-    // Fix for dropdown toggles in mobile
-    $(".dropdown-toggle").on("click", function (e) {
-      if ($(window).width() <= 991.98) {
+    // Create mobile overlay
+    function createMobileOverlay() {
+      if (overlayCreated) return;
+
+      // Create overlay container
+      var $overlay = $('<div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>');
+      var $overlayContent = $('<div class="mobile-menu-content"></div>');
+
+      // Clone the navigation content
+      var $navContent = $navbarCollapse.find(".navbar-nav").clone();
+
+      // Add close button
+      var $closeBtn = $('<button class="mobile-menu-close" aria-label="Close menu">&times;</button>');
+
+      // Assemble overlay
+      $overlayContent.append($closeBtn).append($navContent);
+      $overlay.append($overlayContent);
+      $body.append($overlay);
+
+      // Handle close button
+      $closeBtn.on("click", function () {
+        hideMobileOverlay();
+        $navbarCollapse.collapse("hide");
+      });
+
+      // Handle navigation links
+      $overlay.find(".nav-link").on("click", function () {
+        hideMobileOverlay();
+        $navbarCollapse.collapse("hide");
+      });
+
+      // Handle dropdowns
+      $overlay.find(".dropdown-toggle").on("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
 
@@ -37,8 +63,8 @@ $(document).ready(function () {
         var $dropdownMenu = $dropdown.find(".dropdown-menu");
 
         // Close other dropdowns
-        $(".dropdown").not($dropdown).removeClass("show");
-        $(".dropdown-menu").not($dropdownMenu).removeClass("show");
+        $overlay.find(".dropdown").not($dropdown).removeClass("show");
+        $overlay.find(".dropdown-menu").not($dropdownMenu).removeClass("show");
 
         // Toggle current dropdown
         if ($dropdown.hasClass("show")) {
@@ -48,64 +74,80 @@ $(document).ready(function () {
           $dropdown.addClass("show");
           $dropdownMenu.addClass("show");
         }
+      });
+
+      overlayCreated = true;
+    }
+
+    // Show mobile overlay
+    function showMobileOverlay() {
+      if (!overlayCreated) {
+        createMobileOverlay();
+      }
+      $("#mobile-menu-overlay").addClass("show");
+      $body.addClass("mobile-menu-open");
+    }
+
+    // Hide mobile overlay
+    function hideMobileOverlay() {
+      $("#mobile-menu-overlay").removeClass("show");
+      $body.removeClass("mobile-menu-open");
+    }
+
+    // Handle hamburger button click
+    $(".navbar-toggler").on("click", function () {
+      if ($(window).width() <= 991.98) {
+        // Small delay to let Bootstrap handle its state
+        setTimeout(function () {
+          if ($navbarCollapse.hasClass("show")) {
+            showMobileOverlay();
+          }
+        }, 100);
       }
     });
 
-    // Close mobile menu when clicking on a nav link
-    $(".navbar-nav .nav-link").on("click", function () {
+    // Listen for Bootstrap collapse events
+    $navbarCollapse.on("show.bs.collapse", function () {
       if ($(window).width() <= 991.98) {
-        var $navbarCollapse = $("#navbarNav");
-        if ($navbarCollapse.hasClass("show")) {
-          $navbarCollapse.collapse("hide");
-        }
+        setTimeout(showMobileOverlay, 100);
+      }
+    });
+
+    $navbarCollapse.on("hide.bs.collapse", function () {
+      if ($(window).width() <= 991.98) {
+        hideMobileOverlay();
       }
     });
 
     // Handle window resize
     $(window).on("resize", function () {
       if ($(window).width() > 991.98) {
-        // Reset mobile menu state on larger screens
-        $("#navbarNav").collapse("hide");
+        hideMobileOverlay();
+        $navbarCollapse.collapse("hide");
         $(".dropdown").removeClass("show");
         $(".dropdown-menu").removeClass("show");
       }
     });
 
-    // Ensure mobile menu is properly positioned and visible
-    $(".navbar-toggler").on("click", function () {
-      // Small delay to ensure Bootstrap classes are applied
-      setTimeout(function () {
-        var $navbarCollapse = $("#navbarNav");
-        if ($navbarCollapse.hasClass("show")) {
-          // Ensure the mobile menu is properly visible
-          $navbarCollapse.css({
-            position: "relative",
-            top: "auto",
-            left: "auto",
-            right: "auto",
-            width: "100%",
-            overflow: "visible",
-            "max-height": "none",
-          });
-
-          // Ensure all navigation items are visible
-          $navbarCollapse.find(".navbar-nav, .nav-item, .nav-link, .dropdown-menu, .dropdown-item").css({
-            visibility: "visible",
-            opacity: "1",
-            display: "block",
-            "pointer-events": "auto",
-          });
+    // Close overlay when clicking outside
+    $(document).on("click", function (e) {
+      if ($(window).width() <= 991.98 && overlayCreated) {
+        var $overlay = $("#mobile-menu-overlay");
+        if ($overlay.hasClass("show") && !$overlay.is(e.target) && $overlay.has(e.target).length === 0) {
+          hideMobileOverlay();
+          $navbarCollapse.collapse("hide");
         }
-      }, 100);
+      }
     });
 
-    // Prevent any interference with mobile menu visibility
-    $(document).on("mouseenter mouseleave", ".navbar-collapse, .navbar-nav, .nav-item, .nav-link, .dropdown-menu, .dropdown-item", function (e) {
-      // Ensure elements stay visible during hover events
-      $(this).css({
-        visibility: "visible",
-        opacity: "1",
-      });
+    // Handle escape key
+    $(document).on("keydown", function (e) {
+      if (e.key === "Escape" && $(window).width() <= 991.98 && overlayCreated) {
+        if ($("#mobile-menu-overlay").hasClass("show")) {
+          hideMobileOverlay();
+          $navbarCollapse.collapse("hide");
+        }
+      }
     });
   });
 
