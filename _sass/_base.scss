@@ -2,6 +2,75 @@
  * Styles for the base elements of the theme.
  ******************************************************************************/
 
+// Global Spacing System - ensures consistent spacing across all pages
+html {
+  scroll-padding-top: 70px; // Reduced from 80px to prevent excessive spacing
+}
+
+body {
+  // Ensure proper spacing from fixed navbar
+  &.fixed-top-nav {
+    padding-top: 56px; // Match navbar height
+  }
+}
+
+// Enhanced navbar spacing system
+.navbar {
+  &.fixed-top {
+    z-index: 1030; // Ensure navbar is above other content
+  }
+}
+
+// CRITICAL FIX: Force proper spacing for all page headers to prevent navbar overlap
+.post-header,
+.page-header,
+.content-header,
+header[class*="header"] {
+  margin-top: 80px !important; /* Force spacing from navbar */
+  padding-top: 20px !important;
+}
+
+.post-title,
+.page-title,
+.content-title,
+h1[class*="title"],
+.post-header h1,
+.page-header h1,
+.content-header h1 {
+  margin-top: 0 !important; /* Remove default margins */
+  padding-top: 0 !important; /* Remove default padding */
+  line-height: 1.2; /* Consistent line height for all titles */
+}
+
+.post-description,
+.page-description,
+.content-description,
+.post-header p,
+.page-header p,
+.content-header p {
+  margin-top: 0 !important; /* Remove default margins */
+  line-height: 1.6; /* Consistent line height for descriptions */
+}
+
+/* Responsive navbar spacing adjustments */
+@media (min-width: 768px) {
+  .post-header,
+  .page-header,
+  .content-header,
+  header[class*="header"] {
+    margin-top: 90px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .post-header,
+  .page-header,
+  .content-header,
+  header[class*="header"] {
+    margin-top: 100px !important;
+  }
+}
+
 // Typography
 
 p,
@@ -1145,6 +1214,59 @@ nav[data-toggle="toc"] {
 
 #toc-sidebar {
   z-index: 1;
+  background-color: var(--global-bg-color);
+  border-right: 1px solid var(--global-divider-color);
+  padding: 1rem;
+  max-height: calc(100vh - 80px); // Prevent overflow
+  overflow-y: auto;
+
+  // Smooth scrolling for the TOC itself
+  scrollbar-width: thin;
+  scrollbar-color: var(--global-divider-color) transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--global-divider-color);
+    border-radius: 3px;
+  }
+
+  // Style the TOC navigation items
+  .nav {
+    .nav-item {
+      .nav-link {
+        color: var(--global-text-color);
+        padding: 0.25rem 0;
+        font-size: 0.9rem;
+        border: none;
+        background: transparent;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: var(--global-theme-color);
+          background: transparent;
+        }
+
+        &.active {
+          color: var(--global-theme-color);
+          font-weight: 600;
+          background: transparent;
+        }
+      }
+    }
+
+    // Nested navigation items
+    .nav .nav-item .nav-link {
+      padding-left: 1rem;
+      font-size: 0.85rem;
+    }
+  }
 }
 
 .echarts {

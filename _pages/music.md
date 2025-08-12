@@ -2,7 +2,7 @@
 layout: page
 title: Music
 permalink: /music/
-description: A collection of YouTube music videos organized by category!
+description: Some of the music I had the pleasure of being a part of creating!
 nav: true
 nav_order: 3
 display_categories: [jazz, classical, collaborations]

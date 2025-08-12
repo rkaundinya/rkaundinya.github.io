@@ -1,0 +1,165 @@
+{% comment %}
+  writing_item.liquid - Display individual writing items
+  
+  Usage: {% include writing_item.liquid writing=writing %}
+  
+  Required variables:
+  - writing.title: Title of the article
+  - writing.description: Description/summary
+  - writing.url: Link to the article
+  - writing.source: Source platform (e.g., Medium)
+  - writing.date: Publication date
+  - writing.read_time: Estimated reading time
+  - writing.importance: Sorting order
+  - writing.featured: Boolean for featured status
+{% endcomment %}
+
+<div class="writing-item {% if writing.featured %}featured{% endif %}" data-importance="{{ writing.importance }}">
+  <div class="card h-100">
+    <div class="card-body">
+      <div class="writing-header">
+        {% if writing.featured %}
+          <span class="featured-badge">⭐ Featured</span>
+        {% endif %}
+        <h5 class="card-title">
+          <a href="{{ writing.url }}" target="_blank" rel="noopener noreferrer" class="writing-link">
+            {{ writing.title }}
+          </a>
+        </h5>
+      </div>
+      
+      <p class="card-text writing-description">{{ writing.description }}</p>
+      
+      <div class="writing-meta">
+        <div class="meta-row">
+          <span class="source-badge">{{ writing.source }}</span>
+          <span class="read-time">{{ writing.read_time }}</span>
+        </div>
+        <div class="meta-row">
+          <span class="publication-date">{{ writing.date | date: "%B %d, %Y" }}</span>
+        </div>
+      </div>
+      
+      <div class="writing-actions">
+        <a href="{{ writing.url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          Read Article →
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.writing-item {
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.writing-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.writing-item.featured {
+  border: 2px solid #ffd700;
+  background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+}
+
+.featured-badge {
+  display: inline-block;
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  color: #333;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+}
+
+.writing-header {
+  margin-bottom: 1rem;
+}
+
+.writing-link {
+  color: #2c3e50;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.writing-link:hover {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.writing-description {
+  color: #6c757d;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.writing-meta {
+  margin-bottom: 1.5rem;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.source-badge {
+  background: #e9ecef;
+  color: #495057;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.read-time {
+  color: #6c757d;
+  font-size: 0.8rem;
+}
+
+.publication-date {
+  color: #6c757d;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.writing-actions {
+  text-align: right;
+}
+
+.btn-primary {
+  background: #3498db;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #2980b9;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .meta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .writing-actions {
+    text-align: center;
+  }
+}
+</style>

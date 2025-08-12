@@ -1,6 +1,37 @@
 ---
 layout: default
 ---
+<!-- Direct spacing fix for navigation bar overlap -->
+<style>
+  .post-header {
+    margin-top: 80px !important; /* Direct spacing from navbar */
+    padding-top: 20px !important;
+  }
+  
+  .post-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  
+  .desc {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  
+  /* Responsive adjustments */
+  @media (min-width: 768px) {
+    .post-header {
+      margin-top: 90px !important;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .post-header {
+      margin-top: 100px !important;
+    }
+  }
+</style>
+
 <style>
   .universe-image {
     width: 100% !important;

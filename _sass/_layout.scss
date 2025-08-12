@@ -307,19 +307,40 @@ body.sticky-bottom-footer {
   .post-header {
     margin-bottom: 2rem;
     text-align: center;
+    /* Spacing is now handled in _base.scss with !important rules */
+  }
 
-    .post-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: var(--global-theme-color);
+  .post-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--global-theme-color);
+    line-height: 1.2;
+  }
+
+  .post-description {
+    font-size: 1.2rem;
+    color: var(--global-text-color-light);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  // Global page spacing system - ensures consistent spacing across all pages
+  .page-content {
+    padding-top: 1rem;
+  }
+
+  // Responsive spacing adjustments
+  @media (min-width: 768px) {
+    .post-header {
+      margin-bottom: 2.5rem;
     }
+  }
 
-    .post-description {
-      font-size: 1.2rem;
-      color: var(--global-text-color-light);
-      max-width: 600px;
-      margin: 0 auto;
+  @media (min-width: 1200px) {
+    .post-header {
+      margin-bottom: 3rem;
     }
   }
 

@@ -1,0 +1,88 @@
+# Featured Writings - Displayed prominently at the top
+featured:
+  - title: "The Future of Quantum Computing"
+    description: "Exploring the potential applications and challenges of quantum computing in modern technology"
+    url: "https://medium.com/@username/the-future-of-quantum-computing"
+    source: "Medium"
+    date: "2024-12-01"
+    read_time: "8 min read"
+    importance: 1
+    featured: true
+
+  - title: "Machine Learning in Healthcare: A Comprehensive Guide"
+    description: "How AI is transforming patient care and medical research"
+    url: "https://medium.com/@username/machine-learning-in-healthcare"
+    source: "Medium"
+    date: "2024-11-15"
+    read_time: "12 min read"
+    importance: 2
+    featured: true
+
+# Technical Articles
+technical:
+  - title: "Building Scalable Microservices with Docker"
+    description: "A practical guide to containerizing and orchestrating microservices"
+    url: "https://medium.com/@username/building-scalable-microservices"
+    source: "Medium"
+    date: "2024-10-20"
+    read_time: "10 min read"
+    importance: 1
+    featured: false
+
+  - title: "Understanding Neural Network Architectures"
+    description: "Deep dive into different neural network structures and their applications"
+    url: "https://medium.com/@username/neural-network-architectures"
+    source: "Medium"
+    date: "2024-09-30"
+    read_time: "15 min read"
+    importance: 2
+    featured: false
+
+  - title: "API Design Best Practices"
+    description: "Essential principles for designing robust and user-friendly APIs"
+    url: "https://medium.com/@username/api-design-best-practices"
+    source: "Medium"
+    date: "2024-08-25"
+    read_time: "7 min read"
+    importance: 3
+    featured: false
+
+# Industry Insights
+industry:
+  - title: "The Rise of Edge Computing"
+    description: "How edge computing is reshaping the technology landscape"
+    url: "https://medium.com/@username/rise-of-edge-computing"
+    source: "Medium"
+    date: "2024-07-15"
+    read_time: "9 min read"
+    importance: 1
+    featured: false
+
+  - title: "Sustainable Technology: Green Computing Practices"
+    description: "Environmental considerations in modern software development"
+    url: "https://medium.com/@username/sustainable-technology"
+    source: "Medium"
+    date: "2024-06-10"
+    read_time: "11 min read"
+    importance: 2
+    featured: false
+
+# Personal Reflections
+personal:
+  - title: "My Journey in Tech: Lessons Learned"
+    description: "Personal insights and career advice from a software engineer"
+    url: "https://medium.com/@username/tech-journey-lessons"
+    source: "Medium"
+    date: "2024-05-20"
+    read_time: "6 min read"
+    importance: 1
+    featured: false
+
+  - title: "Work-Life Balance in the Tech Industry"
+    description: "Finding harmony between professional growth and personal well-being"
+    url: "https://medium.com/@username/work-life-balance-tech"
+    source: "Medium"
+    date: "2024-04-15"
+    read_time: "8 min read"
+    importance: 2
+    featured: false
