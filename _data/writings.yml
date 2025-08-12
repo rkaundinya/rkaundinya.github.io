@@ -1,88 +1,92 @@
 # Featured Writings - Displayed prominently at the top
 featured:
-  - title: "The Future of Quantum Computing"
-    description: "Exploring the potential applications and challenges of quantum computing in modern technology"
-    url: "https://medium.com/@username/the-future-of-quantum-computing"
+  - title: "A Brief History of NLP"
+    description: "A brief overview of the major developments and philosophical/scientific grounding of modern natural language processing."
+    url: "https://medium.com/inside-out-through-the-looking-glass/a-brief-history-of-natural-language-processing-nlp-5b77c71cd374"
     source: "Medium"
-    date: "2024-12-01"
-    read_time: "8 min read"
+    date: "2024-04-03"
     importance: 1
     featured: true
 
-  - title: "Machine Learning in Healthcare: A Comprehensive Guide"
-    description: "How AI is transforming patient care and medical research"
-    url: "https://medium.com/@username/machine-learning-in-healthcare"
-    source: "Medium"
-    date: "2024-11-15"
-    read_time: "12 min read"
-    importance: 2
-    featured: true
-
-# Technical Articles
-technical:
-  - title: "Building Scalable Microservices with Docker"
-    description: "A practical guide to containerizing and orchestrating microservices"
-    url: "https://medium.com/@username/building-scalable-microservices"
-    source: "Medium"
-    date: "2024-10-20"
-    read_time: "10 min read"
-    importance: 1
-    featured: false
-
-  - title: "Understanding Neural Network Architectures"
-    description: "Deep dive into different neural network structures and their applications"
-    url: "https://medium.com/@username/neural-network-architectures"
-    source: "Medium"
-    date: "2024-09-30"
-    read_time: "15 min read"
+  - title: "The Fragile State of Peer Review"
+    description: "An article featuring interviews of scientists on the state of the peer review system."
+    url: "https://ukrant.nl/magazine/the-fragile-state-of-peer-review-can-open-science-fix-the-system/?lang=en"
+    source: "Ukrant"
+    date: "2024-02-19"
     importance: 2
     featured: false
 
-  - title: "API Design Best Practices"
-    description: "Essential principles for designing robust and user-friendly APIs"
-    url: "https://medium.com/@username/api-design-best-practices"
-    source: "Medium"
-    date: "2024-08-25"
-    read_time: "7 min read"
+  - title: "Bridging the Interdisciplinary Gap"
+    description: "Exploring the challenges and opportunities of interdisciplinary work from the eyes of researchers."
+    url: "https://ukrant.nl/magazine/confusion-and-misunderstandings-interdisciplinary-researchers-face-many-obstacles/?lang=en"
+    source: "Ukrant"
+    date: "2024-05-28"
     importance: 3
     featured: false
 
-# Industry Insights
-industry:
-  - title: "The Rise of Edge Computing"
-    description: "How edge computing is reshaping the technology landscape"
-    url: "https://medium.com/@username/rise-of-edge-computing"
+engineering:
+  - title: "A Computational Theoreme - Three Men and One Elephant"
+    description: "An exploration and explanation of the Knuth-Morris-Pratt Algorithm"
+    url: "https://medium.com/inside-out-through-the-looking-glass/a-computational-theorem-three-men-and-one-elephant-7687f6b7ada6"
     source: "Medium"
-    date: "2024-07-15"
-    read_time: "9 min read"
+    date: "2022-07-31"
     importance: 1
     featured: false
 
-  - title: "Sustainable Technology: Green Computing Practices"
-    description: "Environmental considerations in modern software development"
-    url: "https://medium.com/@username/sustainable-technology"
+  - title: "The Thousand Brains Theory of Intelligence"
+    description: "A look at the Thousand Brains Theory of Intelligence as laid out by Jeff Hawkins in his book 'A Thousand Brains'."
+    url: "https://medium.com/inside-out-through-the-looking-glass/the-thousand-brains-theory-of-intelligence-d5161e8a6007"
     source: "Medium"
-    date: "2024-06-10"
-    read_time: "11 min read"
+    date: "2021-09-27"
     importance: 2
     featured: false
 
-# Personal Reflections
-personal:
-  - title: "My Journey in Tech: Lessons Learned"
-    description: "Personal insights and career advice from a software engineer"
-    url: "https://medium.com/@username/tech-journey-lessons"
+  - title: "Recursion - The Basis of Langauge and Machine Learning"
+    description: "Reflections from the early days on recursion and its role in language and AI."
+    url: "https://medium.com/inside-out-through-the-looking-glass/recursion-the-basis-of-language-and-ml-c008c98cb388"
     source: "Medium"
-    date: "2024-05-20"
-    read_time: "6 min read"
+    date: "2018-06-27"
+    importance: 3
+    featured: false
+
+philosophy:
+  - title: "The Fourth Dimension: Is Inter-Dimensional Shift the Source of Creativity?"
+    description: "An exploration at the connections between scientific experiences of insight and mathematical and psychedelic parallels."
+    url: "https://medium.com/the-saturday-essay/the-fourth-dimension-is-inter-dimensional-shift-the-source-of-creativity-c50a6eba4e12"
+    source: "Medium"
+    date: "2018-06-02"
     importance: 1
     featured: false
 
-  - title: "Work-Life Balance in the Tech Industry"
-    description: "Finding harmony between professional growth and personal well-being"
-    url: "https://medium.com/@username/work-life-balance-tech"
+  - title: "Images of the World"
+    description: "A look at the major mythological images of the universe and how they can be integrated."
+    url: "https://medium.com/inside-out-through-the-looking-glass/images-of-the-world-1e3c74fc6443"
     source: "Medium"
-    date: "2024-04-15"
-    read_time: "8 min read"
+    date: "2024-05-12"
     importance: 2
     featured: false
+
+  - title: "Can we ever truly have no idea?"
+    description: "An exploration on ignorance."
+    url: "https://medium.com/the-saturday-essay/can-we-ever-truly-have-no-idea-a3fabed6c105"
+    source: "Medium"
+    date: 2018-09-27
+    importance: 3
+    featured: false
+
+article:
+- title: "The fragile state of peer review"
+  description: "An article featuring interviews of scientists on the state of the peer review system."
+  url: "https://ukrant.nl/magazine/the-fragile-state-of-peer-review-can-open-science-fix-the-system/?lang=en"
+  source: "Ukrant"
+  date: "2024-02-19"
+  importance: 2
+  featured: false
+
+- title: "Bridging the Interdisciplinary Gap"
+  description: "Exploring the challenges and opportunities of interdisciplinary work from the eyes of researchers."
+  url: "https://ukrant.nl/magazine/confusion-and-misunderstandings-interdisciplinary-researchers-face-many-obstacles/?lang=en"
+  source: "Ukrant"
+  date: "2024-05-28"
+  importance: 3
+  featured: false

@@ -3,7 +3,7 @@ layout: page
 permalink: /repositories/
 title: Repositories
 nav: true
-nav_order: 4
+nav_order: 2
 ---
 
 Here are a few of my public repositories. Some work remains private, but you can follow [rkaundinya](https://github.com/rkaundinya) and [RamGroningen](https://github.com/RamGroningen) and keep up to date with my open source projects.

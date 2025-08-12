@@ -4,7 +4,7 @@ permalink: /video_games/
 title: Video Games
 description: Some great games I had the pleasure of working on!
 nav: true
-nav_order: 2
+nav_order: 3
 ---
 
 <!-- pages/video_games.md -->

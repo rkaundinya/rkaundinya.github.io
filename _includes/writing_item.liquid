@@ -18,9 +18,6 @@
   <div class="card h-100">
     <div class="card-body">
       <div class="writing-header">
-        {% if writing.featured %}
-          <span class="featured-badge">⭐ Featured</span>
-        {% endif %}
         <h5 class="card-title">
           <a href="{{ writing.url }}" target="_blank" rel="noopener noreferrer" class="writing-link">
             {{ writing.title }}
@@ -65,35 +62,24 @@
   background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
 }
 
-.featured-badge {
-  display: inline-block;
-  background: linear-gradient(45deg, #ffd700, #ffed4e);
-  color: #333;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
-}
-
 .writing-header {
   margin-bottom: 1rem;
 }
 
 .writing-link {
-  color: #2c3e50;
+  color: var(--global-text-color);
   text-decoration: none;
   transition: color 0.3s ease;
+  font-weight: 600;
 }
 
 .writing-link:hover {
-  color: #3498db;
+  color: var(--global-theme-color);
   text-decoration: none;
 }
 
 .writing-description {
-  color: #6c757d;
+  color: var(--global-text-color-light);
   font-size: 0.9rem;
   line-height: 1.5;
   margin-bottom: 1.5rem;
@@ -111,8 +97,8 @@
 }
 
 .source-badge {
-  background: #e9ecef;
-  color: #495057;
+  background: var(--global-divider-color);
+  color: var(--global-text-color);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   font-size: 0.8rem;
@@ -120,12 +106,12 @@
 }
 
 .read-time {
-  color: #6c757d;
+  color: var(--global-text-color-light);
   font-size: 0.8rem;
 }
 
 .publication-date {
-  color: #6c757d;
+  color: var(--global-text-color-light);
   font-size: 0.8rem;
   font-style: italic;
 }
@@ -135,7 +121,7 @@
 }
 
 .btn-primary {
-  background: #3498db;
+  background: var(--global-theme-color);
   border: none;
   border-radius: 6px;
   padding: 0.5rem 1rem;
@@ -145,7 +131,7 @@
 }
 
 .btn-primary:hover {
-  background: #2980b9;
+  background: var(--global-hover-color);
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
 }

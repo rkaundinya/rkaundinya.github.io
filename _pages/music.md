@@ -4,7 +4,7 @@ title: Music
 permalink: /music/
 description: Some of the music I had the pleasure of being a part of creating!
 nav: true
-nav_order: 3
+nav_order: 4
 display_categories: [jazz, classical, collaborations]
 horizontal: false
 ---

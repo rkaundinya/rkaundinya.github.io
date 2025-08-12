@@ -2,10 +2,10 @@
 layout: page
 title: Writings
 permalink: /writings/
-description: A collection of my articles, blog posts, and writings published on external platforms like Medium.
+description: Some articles, blog posts, and essays I've worked on.
 nav: true
-nav_order: 7
-display_categories: [technical, industry, personal]
+nav_order: 6
+display_categories: [article, engineering, philosophy]
 horizontal: false
 ---
 
@@ -15,7 +15,7 @@ horizontal: false
   <!-- Featured Writings Section -->
   <div class="featured-section">
     <h2 class="section-title">⭐ Featured Stories</h2>
-    <p class="section-description">Highlighted articles that I'm particularly proud of</p>
+    <p class="section-description">Some pieces I'm particularly proud of!</p>
     
     <div class="featured-writings">
       <div class="row row-cols-1 row-cols-md-2">
@@ -38,14 +38,10 @@ horizontal: false
         </a>
         <p class="category-description">
           {% case category %}
-            {% when 'technical' %}
-              Technical articles, tutorials, and deep dives into programming and technology
-            {% when 'industry' %}
-              Industry insights, trends, and analysis of the tech landscape
-            {% when 'personal' %}
-              Personal reflections, career advice, and life lessons from my journey
+            {% when 'article' %}
+              Published articles
             {% else %}
-              Articles and insights on {{ category | capitalize }}
+              Writings on {{ category | capitalize }}
           {% endcase %}
         </p>
         
@@ -72,19 +68,19 @@ horizontal: false
 .featured-section {
   margin-bottom: 4rem;
   padding: 2rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: var(--global-bg-color);
   border-radius: 12px;
-  border: 1px solid #dee2e6;
+  border: 1px solid var(--global-divider-color);
 }
 
 .section-title {
-  color: #2c3e50;
+  color: var(--global-text-color);
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
 
 .section-description {
-  color: #6c757d;
+  color: var(--global-text-color-light);
   font-size: 1.1rem;
   margin-bottom: 2rem;
   font-style: italic;
@@ -110,10 +106,10 @@ horizontal: false
 }
 
 .category-title {
-  color: #495057;
+  color: var(--global-text-color);
   margin-bottom: 0.75rem;
   padding-bottom: 0.5rem;
-  border-bottom: 3px solid #3498db;
+  border-bottom: 3px solid var(--global-theme-color);
   font-weight: 600;
   position: relative;
 }
@@ -129,7 +125,7 @@ horizontal: false
 }
 
 .category-description {
-  color: #6c757d;
+  color: var(--global-text-color-light);
   font-size: 1rem;
   margin-bottom: 2rem;
   line-height: 1.6;
