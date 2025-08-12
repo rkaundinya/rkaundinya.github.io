@@ -85,4 +85,6 @@ horizontal: false
 .video-thumbnail:not([loading]) {
   opacity: 1;
 }
+
+
 </style>
