@@ -1,10 +1,10 @@
-# al-folio
+# Ram Eshwar Kaundinya - Personal Website
 
 <div align="center">
 
-[![Preview](readme_preview/al-folio-preview.png)](https://alshedivat.github.io/al-folio/)
+[![Preview](assets/img/prof_pic.jpg)](https://rkaundinya.github.io/)
 
-**A simple, clean, and responsive [Jekyll](https://jekyllrb.com/) theme for academics.**
+**Personal website of Ram Eshwar Kaundinya - Neuromorphic AI researcher at the University of Groningen**
 
 ---
 

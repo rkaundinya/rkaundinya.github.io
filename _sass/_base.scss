@@ -319,6 +319,318 @@ ul.task-list input[type="checkbox"] {
   opacity: 0.95;
 }
 
+// Mobile navigation fixes
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--global-bg-color);
+    border-top: 1px solid var(--global-divider-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+
+    // Ensure the collapsed menu is properly displayed
+    &.collapse:not(.show) {
+      display: none !important;
+    }
+
+    &.collapsing {
+      height: auto !important;
+      overflow: hidden;
+      transition: height 0.35s ease;
+    }
+
+    &.show {
+      display: block !important;
+    }
+
+    .navbar-nav {
+      padding: 1rem 0;
+
+      .nav-item {
+        border-bottom: 1px solid var(--global-divider-color);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .nav-link {
+          padding: 0.75rem 1.5rem;
+          font-size: 1rem;
+
+          &:hover {
+            background-color: var(--global-hover-color);
+            color: var(--global-theme-color);
+          }
+        }
+      }
+
+      .dropdown-menu {
+        position: static !important;
+        float: none;
+        width: 100%;
+        background-color: var(--global-bg-color);
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+
+        .dropdown-item {
+          padding: 0.5rem 2rem;
+          border-bottom: 1px solid var(--global-divider-color);
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          &:hover {
+            background-color: var(--global-hover-color);
+            color: var(--global-theme-color);
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-toggler {
+    border: 1px solid var(--global-divider-color);
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+  }
+
+  // Ensure search and theme toggle buttons are properly styled on mobile
+  #search-toggle,
+  #light-toggle {
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 0.25rem;
+
+    &:hover {
+      background-color: var(--global-hover-color);
+    }
+  }
+
+  // Fix for dropdown menus in mobile navigation
+  .dropdown {
+    .dropdown-toggle::after {
+      float: right;
+      margin-top: 0.5rem;
+    }
+
+    &.show .dropdown-toggle::after {
+      transform: rotate(180deg);
+    }
+  }
+
+  // Ensure all navigation items are visible
+  .navbar-nav .nav-item {
+    display: block !important;
+    width: 100%;
+
+    .nav-link {
+      display: block !important;
+      width: 100%;
+    }
+  }
+
+  // Additional mobile menu improvements
+  .navbar-collapse {
+    max-height: 80vh;
+    overflow-y: auto;
+
+    // Ensure proper spacing between items
+    .navbar-nav {
+      margin: 0;
+
+      .nav-item {
+        margin: 0;
+
+        .nav-link {
+          margin: 0;
+          border-radius: 0;
+
+          // Ensure proper touch targets
+          min-height: 44px;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  // Fix for search and theme toggle buttons
+  .toggle-container {
+    width: 100%;
+    margin: 0.5rem 0;
+
+    #light-toggle {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  // Ensure dropdown arrows are visible
+  .dropdown-toggle::after {
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  // Bootstrap collapse fixes for mobile
+  .navbar-collapse {
+    // Override Bootstrap's default collapse behavior
+    &.collapse {
+      display: none;
+
+      &.show {
+        display: block !important;
+      }
+    }
+
+    &.collapsing {
+      position: relative;
+      height: 0;
+      overflow: hidden;
+      transition: height 0.35s ease;
+    }
+  }
+
+  // Ensure proper z-index for mobile menu
+  .navbar {
+    position: relative;
+    z-index: 1030;
+  }
+
+  // Fix for mobile menu positioning
+  .navbar-collapse.show {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--global-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-top: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  // Ensure all navigation elements are properly styled on mobile
+  .navbar-nav {
+    .nav-item {
+      // Force display of all navigation items
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+
+      .nav-link {
+        // Ensure proper styling and visibility
+        color: var(--global-text-color) !important;
+        background: transparent;
+        transition: all 0.2s ease;
+
+        &:hover,
+        &:focus {
+          color: var(--global-theme-color) !important;
+          background-color: var(--global-hover-color);
+        }
+      }
+
+      // Active state styling
+      &.active .nav-link {
+        color: var(--global-theme-color) !important;
+        font-weight: bold;
+        background-color: var(--global-hover-color);
+      }
+    }
+  }
+
+  // Fix for dropdown menus in mobile
+  .dropdown {
+    .dropdown-menu {
+      // Ensure dropdown is visible when parent is active
+      &.show {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+
+      .dropdown-item {
+        // Ensure dropdown items are properly styled
+        color: var(--global-text-color) !important;
+        background: transparent;
+        border: none;
+        padding: 0.5rem 2rem;
+
+        &:hover,
+        &:focus {
+          color: var(--global-theme-color) !important;
+          background-color: var(--global-hover-color);
+        }
+
+        &.active {
+          color: var(--global-theme-color) !important;
+          font-weight: bold;
+          background-color: var(--global-hover-color);
+        }
+      }
+    }
+  }
+
+  // Additional mobile menu styling improvements
+  .navbar-collapse {
+    // Ensure proper background and borders
+    background-color: var(--global-bg-color, #ffffff);
+    border: 1px solid var(--global-divider-color, #e9ecef);
+    border-top: none;
+
+    // Ensure proper text colors
+    .navbar-nav .nav-item .nav-link {
+      color: var(--global-text-color, #333333) !important;
+
+      &:hover {
+        color: var(--global-theme-color, #007bff) !important;
+        background-color: var(--global-hover-color, #f8f9fa);
+      }
+    }
+
+    // Ensure proper dropdown styling
+    .dropdown-menu {
+      background-color: var(--global-bg-color, #ffffff);
+      border: 1px solid var(--global-divider-color, #e9ecef);
+
+      .dropdown-item {
+        color: var(--global-text-color, #333333) !important;
+
+        &:hover {
+          color: var(--global-theme-color, #007bff) !important;
+          background-color: var(--global-hover-color, #f8f9fa);
+        }
+      }
+    }
+  }
+
+  // Ensure proper mobile menu positioning and z-index
+  .navbar {
+    position: relative;
+    z-index: 1030;
+  }
+
+  .navbar-collapse.show {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1020;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
 .navbar .dropdown-menu {
   background-color: var(--global-bg-color);
   border: 1px solid var(--global-divider-color);
