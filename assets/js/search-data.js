@@ -7,56 +7,63 @@ ninja.data = [{
     title: "About",
     section: "Navigation",
     handler: () => {
-      window.location.href = "/al-folio/";
+      window.location.href = "/";
     },
   },{id: "nav-publications",
           title: "Publications",
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/al-folio/publications/";
+            window.location.href = "/publications/";
           },
         },{id: "nav-repositories",
           title: "Repositories",
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/al-folio/repositories/";
+            window.location.href = "/repositories/";
           },
         },{id: "nav-video-games",
           title: "Video Games",
           description: "Some great games I had the pleasure of working on!",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/al-folio/video_games/";
+            window.location.href = "/video_games/";
           },
         },{id: "nav-music",
           title: "Music",
           description: "Some of the music I had the pleasure of being a part of creating!",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/al-folio/music/";
+            window.location.href = "/music/";
           },
         },{id: "nav-cv",
           title: "CV",
           description: "You can downlaod a pdf of my CV above.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/al-folio/cv/";
+            window.location.href = "/cv/";
           },
         },{id: "nav-writings",
           title: "Writings",
           description: "Some articles, blog posts, and essays I&#39;ve worked on.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/al-folio/writings/";
+            window.location.href = "/writings/";
           },
         },{id: "nav-teaching",
           title: "Teaching",
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/al-folio/teaching/";
+            window.location.href = "/teaching/";
+          },
+        },{id: "nav-news",
+          title: "News",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/news/";
           },
         },{id: "post-google-gemini-updates-flash-1-5-gemma-2-and-project-astra",
         
@@ -99,17 +106,17 @@ ninja.data = [{
           title: 'Civilization 7',
           description: "The award-winning strategy game franchise returns with a revolutionary new chapter. Sid Meier&#39;s Civilization® VII empowers you to build the greatest empire the world has ever known!",
           section: "Video_games",handler: () => {
-              window.location.href = "/al-folio/video_games/1_game/";
+              window.location.href = "/video_games/1_game/";
             },},{id: "video_games-marvel-39-s-midnight-suns",
           title: 'Marvel&amp;#39;s Midnight Suns',
           description: "FIGHT AND STRATEGIZE LIKE A SUPER HERO IN THE DARKER CORNERS OF THE MARVEL UNIVERSE. Play as The Hunter, a legendary demon slayer who must lead a team of Super Heroes and supernatural warriors facing apocalyptic threats.",
           section: "Video_games",handler: () => {
-              window.location.href = "/al-folio/video_games/2_game/";
+              window.location.href = "/video_games/2_game/";
             },},{id: "video_games-megalith",
           title: 'Megalith',
           description: "The stage has been set for the greatest battle in history. Use your massive size and powerful abilities to compete against other Titans for supremacy in this original VR hero shooter/MOBA hybrid.",
           section: "Video_games",handler: () => {
-              window.location.href = "/al-folio/video_games/3_game/";
+              window.location.href = "/video_games/3_game/";
             },},{
         id: 'social-email',
         title: 'email',
