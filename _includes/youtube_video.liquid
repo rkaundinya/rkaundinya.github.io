@@ -1,17 +1,38 @@
 <div class="col">
   <div class="card h-100 hoverable">
     <div class="video-container" data-video-id="{{ video.video_id }}" data-video-title="{{ video.title }}">
-      <!-- Placeholder that will be replaced with iframe when in view -->
-      <div class="video-placeholder">
-        <div class="play-button">
-          <i class="fas fa-play"></i>
-        </div>
+      <!-- Clickable thumbnail that expands to video player -->
+      <div class="video-thumbnail-container" onclick="expandVideo(this)">
         <img 
-          src="https://img.youtube.com/vi/{{ video.video_id }}/mqdefault.jpg" 
+          src="https://img.youtube.com/vi/{{ video.video_id }}/hqdefault.jpg" 
           alt="{{ video.title }}"
           class="video-thumbnail"
           loading="lazy"
         >
+        <div class="play-overlay">
+          <div class="play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        <div class="video-duration">3:45</div>
+      </div>
+      
+      <!-- Video player container (hidden initially) -->
+      <div class="video-player-container" style="display: none;">
+        <div class="video-player-header">
+          <button class="close-video-btn" onclick="closeVideo(this)">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="video-iframe-container">
+          <iframe 
+            src=""
+            title="{{ video.title }}"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
     </div>
     <div class="card-body">
@@ -28,24 +49,22 @@
   height: 0;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
   overflow: hidden;
-  cursor: pointer;
+  border-radius: 8px;
 }
 
-.video-placeholder {
+.video-thumbnail-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.3s ease;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.video-placeholder:hover {
-  opacity: 0.8;
+.video-thumbnail-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
 .video-thumbnail {
@@ -55,11 +74,28 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 8px;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.video-thumbnail-container:hover .play-overlay {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .play-button {
-  position: relative;
-  z-index: 2;
   width: 80px;
   height: 80px;
   background: rgba(255, 0, 0, 0.9);
@@ -69,20 +105,77 @@
   justify-content: center;
   color: white;
   font-size: 24px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .play-button:hover {
   transform: scale(1.1);
+  background: rgba(255, 0, 0, 1);
 }
 
-.video-container iframe {
+.video-duration {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Video player container styles */
+.video-player-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background: #000;
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.video-player-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 11;
+  padding: 8px;
+}
+
+.close-video-btn {
+  background: rgba(0, 0, 0, 0.7);
   border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.close-video-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.video-iframe-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-iframe-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
 }
 
 .card.hoverable:hover {
@@ -102,59 +195,200 @@
   color: #666;
   line-height: 1.4;
 }
+
+/* Modal overlay for expanded video */
+.video-modal-overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.video-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  margin: auto;
+  transform: translateY(-2vh); /* Slight upward adjustment for perfect centering */
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.2s ease;
+}
+
+.video-modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.video-modal-iframe {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .video-modal-overlay {
+    padding: 10px;
+  }
+  
+  .video-modal-content {
+    max-width: 95vw;
+    max-height: 80vh;
+  }
+  
+  .video-modal-close {
+    top: -35px;
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+}
+
+.video-modal-iframe iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
 </style>
 
 <script>
-// Lazy loading for YouTube videos
-document.addEventListener('DOMContentLoaded', function() {
-  const videoContainers = document.querySelectorAll('.video-container[data-video-id]');
+// Global video modal
+let currentVideoModal = null;
+
+// Function to expand video to modal
+function expandVideo(thumbnailContainer) {
+  const videoId = thumbnailContainer.parentElement.dataset.videoId;
+  const videoTitle = thumbnailContainer.parentElement.dataset.videoTitle;
   
-  if ('IntersectionObserver' in window) {
-    const videoObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const container = entry.target;
-          const videoId = container.dataset.videoId;
-          const videoTitle = container.dataset.videoTitle;
-          
-          // Create iframe
-          const iframe = document.createElement('iframe');
-          iframe.src = `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=0`;
-          iframe.title = videoTitle;
-          iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-          iframe.allowFullscreen = true;
-          
-          // Replace placeholder with iframe
-          container.innerHTML = '';
-          container.appendChild(iframe);
-          
-          // Stop observing this container
-          videoObserver.unobserve(container);
-        }
-      });
-    }, {
-      rootMargin: '50px 0px', // Start loading 50px before entering viewport
-      threshold: 0.1
-    });
+  // Get current scroll position and viewport dimensions
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+  const viewportHeight = window.innerHeight;
+  const viewportWidth = window.innerWidth;
+  
+  // Create modal overlay
+  const modalOverlay = document.createElement('div');
+  modalOverlay.className = 'video-modal-overlay';
+  modalOverlay.innerHTML = `
+    <div class="video-modal-content">
+      <button class="video-modal-close" onclick="closeVideoModal()">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="video-modal-iframe">
+        <iframe 
+          src="https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1"
+          title="${videoTitle}"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  `;
+  
+  // Position modal at current scroll position
+  modalOverlay.style.position = 'absolute';
+  modalOverlay.style.top = `${scrollTop}px`;
+  modalOverlay.style.left = `${scrollLeft}px`;
+  modalOverlay.style.width = '100vw';
+  modalOverlay.style.height = '100vh';
+  
+  // Add modal to body
+  document.body.appendChild(modalOverlay);
+  
+  // Show modal with animation
+  setTimeout(() => {
+    modalOverlay.style.display = 'flex';
+    modalOverlay.style.opacity = '0';
+    modalOverlay.style.transform = 'scale(0.95)';
+    modalOverlay.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    setTimeout(() => {
+      modalOverlay.style.opacity = '1';
+      modalOverlay.style.transform = 'scale(1)';
+    }, 10);
+  }, 10);
+  
+  // Store reference to current modal and scroll position
+  currentVideoModal = modalOverlay;
+  currentVideoModal.dataset.scrollTop = scrollTop;
+  currentVideoModal.dataset.scrollLeft = scrollLeft;
+  
+  // Prevent body scroll
+  document.body.style.overflow = 'hidden';
+  
+  // Close modal on escape key
+  document.addEventListener('keydown', handleEscapeKey);
+}
+
+// Function to close video modal
+function closeVideoModal() {
+  if (currentVideoModal) {
+    // Store scroll position before closing
+    const scrollTop = currentVideoModal.dataset.scrollTop;
+    const scrollLeft = currentVideoModal.dataset.scrollLeft;
     
-    videoContainers.forEach(container => {
-      videoObserver.observe(container);
-    });
-  } else {
-    // Fallback for older browsers - load all videos immediately
-    videoContainers.forEach(container => {
-      const videoId = container.dataset.videoId;
-      const videoTitle = container.dataset.videoTitle;
+    currentVideoModal.style.opacity = '0';
+    currentVideoModal.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      if (currentVideoModal.parentNode) {
+        currentVideoModal.parentNode.removeChild(currentVideoModal);
+      }
+      currentVideoModal = null;
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', handleEscapeKey);
       
-      const iframe = document.createElement('iframe');
-      iframe.src = `https://www.youtube.com/embed/${videoId}?rel=0`;
-      iframe.title = videoTitle;
-      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-      iframe.allowFullscreen = true;
-      
-      container.innerHTML = '';
-      container.appendChild(iframe);
-    });
+      // Restore scroll position to where the modal was opened
+      if (scrollTop) {
+        window.scrollTo(parseInt(scrollLeft) || 0, parseInt(scrollTop));
+      }
+    }, 300);
+  }
+}
+
+// Handle escape key
+function handleEscapeKey(event) {
+  if (event.key === 'Escape') {
+    closeVideoModal();
+  }
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', (event) => {
+  if (currentVideoModal && event.target === currentVideoModal) {
+    closeVideoModal();
   }
 });
+
+// Function to close inline video (for compatibility)
+function closeVideo(closeBtn) {
+  const playerContainer = closeBtn.closest('.video-player-container');
+  const thumbnailContainer = playerContainer.previousElementSibling;
+  
+  playerContainer.style.display = 'none';
+  thumbnailContainer.style.display = 'block';
+}
 </script>

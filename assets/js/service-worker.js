@@ -74,7 +74,10 @@ self.addEventListener("fetch", (event) => {
   } else if (url.pathname.includes("/assets/")) {
     // Static assets - cache first
     event.respondWith(cacheFirst(request, STATIC_CACHE));
-  } else if (url.pathname.includes("youtube.com") || url.pathname.includes("spotify.com")) {
+  } else if (url.pathname.includes("img.youtube.com")) {
+    // YouTube thumbnails - cache first for better performance
+    event.respondWith(cacheFirst(request, STATIC_CACHE));
+  } else if (url.pathname.includes("youtube.com/embed") || url.pathname.includes("spotify.com")) {
     // External embeds - network only
     event.respondWith(networkOnly(request));
   } else {

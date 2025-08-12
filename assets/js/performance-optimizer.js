@@ -27,8 +27,8 @@ class PerformanceOptimizer {
     // Preload critical resources
     this.preloadCriticalResources();
 
-    // Optimize iframe loading
-    this.optimizeIframeLoading();
+    // Optimize thumbnail loading
+    this.optimizeThumbnailLoading();
 
     // Implement connection-aware loading
     this.connectionAwareLoading();
@@ -57,30 +57,31 @@ class PerformanceOptimizer {
     });
   }
 
-  optimizeIframeLoading() {
-    // Implement smarter iframe loading strategy
+  optimizeThumbnailLoading() {
+    // Implement smarter thumbnail loading strategy
     if ("IntersectionObserver" in window) {
-      const iframeObserver = new IntersectionObserver(
+      const thumbnailObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              const iframe = entry.target;
-              if (iframe.dataset.src && !iframe.src) {
-                iframe.src = iframe.dataset.src;
-                iframe.removeAttribute("data-src");
+              const thumbnail = entry.target;
+              // Preload high-quality thumbnail when in viewport
+              if (thumbnail.src.includes("mqdefault.jpg")) {
+                const highQualitySrc = thumbnail.src.replace("mqdefault.jpg", "hqdefault.jpg");
+                thumbnail.src = highQualitySrc;
               }
             }
           });
         },
         {
-          rootMargin: "200px 0px", // Start loading 200px before entering viewport
+          rootMargin: "100px 0px", // Start loading 100px before entering viewport
           threshold: 0.1,
         }
       );
 
-      // Observe all iframes
-      document.querySelectorAll("iframe[data-src]").forEach((iframe) => {
-        iframeObserver.observe(iframe);
+      // Observe all thumbnails
+      document.querySelectorAll(".video-thumbnail").forEach((thumbnail) => {
+        thumbnailObserver.observe(thumbnail);
       });
     }
   }
