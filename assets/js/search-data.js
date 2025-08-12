@@ -16,6 +16,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/al-folio/publications/";
           },
+        },{id: "nav-repositories",
+          title: "Repositories",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/al-folio/repositories/";
+          },
         },{id: "nav-video-games",
           title: "Video Games",
           description: "Some great games I had the pleasure of working on!",
@@ -30,13 +37,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/al-folio/music/";
           },
-        },{id: "nav-repositories",
-          title: "Repositories",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/al-folio/repositories/";
-          },
         },{id: "nav-cv",
           title: "CV",
           description: "You can downlaod a pdf of my CV above.",
@@ -44,19 +44,19 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/al-folio/cv/";
           },
+        },{id: "nav-writings",
+          title: "Writings",
+          description: "Some articles, blog posts, and essays I&#39;ve worked on.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/al-folio/writings/";
+          },
         },{id: "nav-teaching",
           title: "Teaching",
           description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/al-folio/teaching/";
-          },
-        },{id: "nav-writings",
-          title: "Writings",
-          description: "A collection of my articles, blog posts, and writings published on external platforms like Medium.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/al-folio/writings/";
           },
         },{id: "post-a-post-with-plotly-js",
         
