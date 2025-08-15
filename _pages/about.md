@@ -41,6 +41,8 @@ I believe a Neoplatonic worldview which affords levels of reality all interpenet
 into one another symbolized aptly by the image of Indra's Net, is the religio which binds
 together intelligence.
 
+I am advised by [Dr. Niels Taatgen](https://www.ai.rug.nl/~niels/) and [Dr. Jelmer Borst](https://www.jelmerborst.nl/). 
+
 Influenced by Rodney Brooks, Jeff Hawkins, John Vervaeke, Allen Newell, Chris Eliasmith, and others.
 
 Please reach out, I'd love to connect!
