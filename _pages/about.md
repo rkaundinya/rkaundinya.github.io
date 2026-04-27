@@ -27,23 +27,18 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a neuromorphic artificial intelligence researcher at the University of Groningen
+I am an artificial intelligence researcher at the University of Groningen
 pursuing my PhD at [Cognigron](https://www.rug.nl/research/fse/cognitive-systems-and-materials/?lang=en). 
 
-My research interests lie in the intersection of dynamical systems, control theory,
-cognitive science, neuromorphic computing, and artificial intelligence. I am currently working in tactile and sensorimotor application areas. 
+My research interests are around 4E cognitive science (embodied, embedded, enacted, extended), ecological psychology, robotics, bio-inspired AI (e.g. neuromorphic), dynamical systems, and complex systems. I currently focus on haptic perception applied to the iCub robot. 
 
-I have a rich background working on video games such as Civilization 7 and Marvel's Midnight
-Suns and as a musician and bandleader with appearances in Carnegie Hall, Disney cartoons, and
-the Lincoln Center!
+I have a rich background working on video games such as Civilization 7 and Marvel's Midnight Suns and as a musician and bandleader with appearances in [Carnegie Hall](https://youtu.be/EY83mTXn9lQ?si=H-bpZSUBdPd92l4H), [Disney cartoons](https://youtu.be/X7Zt9qAt1i8?si=9o2Oed_kItOYV-8J), and the Lincoln Center!
 
-I believe a Neoplatonic worldview which affords levels of reality all interpenetrating
-into one another symbolized aptly by the image of Indra's Net, is the religio which binds
-together intelligence.
+My philosophical influences include Neoplatonism, Zen, Advaita Vedanta, Plato, Spinoza, Aristotle, John Vervaeke, Anthony Chemero, phenomenologists, and more!
 
 I am advised by [Dr. Niels Taatgen](https://www.ai.rug.nl/~niels/) and [Dr. Jelmer Borst](https://www.jelmerborst.nl/). 
 
-Influenced by Rodney Brooks, Jeff Hawkins, John Vervaeke, Allen Newell, Chris Eliasmith, and others.
+Special thanks to Rodney Brooks, Jeff Hawkins, Karl Friston, Michael Levin, John Vervaeke, Mark Miller, Allen Newell, Chris Eliasmith, Melanie Mitchell, Anthony Chemero, JJ Gibson, and others for influencing my work in important ways!
 
 Please reach out, I'd love to connect!
 
