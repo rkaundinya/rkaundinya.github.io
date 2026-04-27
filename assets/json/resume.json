@@ -5,7 +5,7 @@
     "image": "assets/img/prof_pic.jpg",
     "email": "r.e.kaundinya@rug.nl",
     "url": "https://rkaundinya.github.io",
-    "summary": "PhD Candidate at the University of Groningen researching neuromorphic computing for tactile and sensorimotor applications. Strong interest in cognitive architectures, dynamical systems theory, control theory, cognitive science, and philosophy. A veteran video game engineer working alongside renowned developers from Call of Duty, World of Warcraft, LEGO, Civilization, XCom, Skyrim, the Sims, and more.",
+    "summary": "PhD Candidate at the University of Groningen researching bio-inspired artificial intelligence applied to haptic perception in emboedied robotic systems. Strong interest in dynamical systems, complex systems, 4E cognitive science (embodied, embedded, enacted, extended), ecological psychology, phenomenology, and robotics. A veteran video game engineer working alongside renowned developers from Call of Duty, World of Warcraft, LEGO, Civilization, XCom, Skyrim, the Sims, and more.",
     "location": {
       "city": "Groningen",
       "countryCode": "NL"
@@ -18,7 +18,7 @@
       "url": "https://www.rug.nl/staff/r.e.kaundinya/",
       "startDate": "2024-09-01",
       "endDate": "2029-03-01",
-      "summary": "I work at the intersection of neuromorphic computing, artificial intelligence, cognitive science, dynamical systems, and control theory. I am a part of the Cognigron center and the NWO funded NL-ECO project. I have a particular interest in the application of dynamic reconstructive memory architectures for real-time sensorimotor control tasks. I am also interested in embodied AI and the applications of self-organizing systems to building intelligence from the ground up. I am interested in the intersection of relevance realization and dynamical systems theory."
+      "summary": "I work at the intersection of bio-inspired artificial intelligence, 4E (embodied, embedded, enacted, extended) cognitive science, dynamical systems, complex systems, and robotics. I work in the Cognigron center and the NWO funded NL-ECO project. I am interested in the radical embodied cognitive science approach to robotics and cognitive science research. This includes agent-environment coupling which influences perception and sensor-motor abilities ultimately down to the neural organization. Principles of self-organization, criticality, and attractors guide my modeling approaches along with key ideas from cognitive architectures such as interacting levels of abstraction."
     },
     {
       "name": "Midsummer Studios",
@@ -26,7 +26,7 @@
       "url": "https://www.midsummerstudios.com/",
       "startDate": "2024-03-01",
       "endDate": "2025-07-31",
-      "summary": "I worked as an engineer at Midsummer Studios founded by Jake Solomon, Will Miller, and Nelsie Birch on a life simulation game. My work remains confidential, but involved elements of implementing novel artificial intelligence pipelines, cloud engineering, telemetry, and edge compute optimizations."
+      "summary": "I worked as an engineer at Midsummer Studios founded by Jake Solomon, Will Miller, and Nelsie Birch on a life simulation game. I focused on Large Language Model training, optimization, integration, and telemetry. I built infrastructure integrating LLM's into Unreal Engine for real-time inference and telemetry tracking. I also implemented the speech to text framework."
     }
   ],
   "education": [
